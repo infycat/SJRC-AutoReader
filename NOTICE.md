@@ -9,17 +9,17 @@ publisher.
 The MIT licence in [LICENSE](LICENSE) covers the original code and documentation
 created for this project. It does **not** cover:
 
-- The SJRC Android application or any decompiled material under
-  `sjrc-source/` and the `*.smali` excerpts
+- The SJRC Android application or the small `*.smali` excerpts under
+  `phone/src/`
 - Book content, cover images, metadata, or trademarks
 - Third-party libraries, engines, or assets referenced or embedded in the
   original client
 - The names "SJRC", "金閱閣", "校園版", or any associated logos
 
-Those materials remain the property of their respective owners and are included
-only as necessary for interoperability research and commentary. If you are a
-rights holder and believe a file exceeds that purpose, see the takedown process
-below.
+Those materials remain the property of their respective owners. The full
+decompiled reference tree is not included in this repository. If you are a
+rights holder and believe a file exceeds the project's interoperability purpose,
+see the takedown process below.
 
 ## Upstream components observed in the client
 
@@ -49,9 +49,8 @@ This repository does **not** include:
 - Access tokens, refresh tokens, passwords, or verification codes
 - User account data
 
-The public decompiled mirror is redacted: the hard-coded AES key, CBC IV, and RSA
-private keys are replaced with placeholders. Changed files carry a
-`SECURITY REDACTION` banner; see [`sjrc-source/README.md`](sjrc-source/README.md).
+The full decompiled source tree is not distributed here. The repository includes
+no AES keys, IVs, RSA private keys, access tokens, or book-specific keys.
 
 Documentation may describe the *existence* and *shape* of a protection mechanism
 for interoperability analysis, but not the secret material itself.

@@ -1,16 +1,17 @@
 # Data files
 
-Machine-readable companions to the documentation. Everything here is derived
-from the checked-in artifacts; no live API call is needed to reproduce it.
+Machine-readable companions to the documentation. Endpoint tables are curated
+from the public 2.9.0 client reference; the full decompiled tree is not included.
+No live API call is needed to use these files.
 
 ## Files
 
 | File | Rows / shape | Source |
 |---|---|---|
-| `api-endpoints.csv` | 98 rows, columns `http,path,method,class,description` | Retrofit annotations in `sjrc-source/smali/` |
+| `api-endpoints.csv` | 98 rows, columns `http,path,method,class,description` | Curated from the public 2.9.0 client reference |
 | `api-endpoints.json` | 98 methods, 67 unique `METHOD + path` pairs | Same, normalised by module |
 | `api-endpoints-by-module.md` | Grouped summary | Generated from the JSON |
-| `source-stats.json` | SDK levels, smali counts, artifact sizes and SHA-256 | APKs, manifests, release binaries |
+| `source-stats.json` | SDK levels, upstream reference counts, included-source counts, artifact sizes and SHA-256 | Research notes and release binaries |
 
 ## Conventions
 
@@ -18,7 +19,8 @@ from the checked-in artifacts; no live API call is needed to reproduce it.
   with sample values.
 - Methods whose URL is supplied at runtime use the synthetic path
   `(dynamic @Url)`. Keep this row; removing it changes the count.
-- `class` is the owning smali class, so a row can be audited against the source.
+- `class` is the owning smali class name, retained as a research index; source
+  files are not included here.
 - `description` is `?` when the method name does not explain the operation; do
   not invent a description.
 - Endpoint presence does **not** mean this project calls it. The shipped clients
@@ -28,9 +30,10 @@ from the checked-in artifacts; no live API call is needed to reproduce it.
 
 ## Reproducing
 
-The extraction is documented in
+The original analysis is documented in
 [`docs/en/reverse-engineering.md`](../docs/en/reverse-engineering.md#recovering-the-endpoint-list).
-There is no network step:
+The full extraction input is not distributed. For a separately obtained
+reference copy, endpoint strings can be searched with:
 
 ```bash
 grep -rn "reading-time" sjrc-source/smali | head
@@ -44,8 +47,8 @@ PY
 
 Expected: `98 67 98`.
 
-The old `hdr` field in `sjrc-source/net_endpoints.json` is a corrupted
-androguard representation and is deliberately excluded from these tables.
+The old source-side `hdr` field was a corrupted androguard representation and is
+deliberately excluded from these tables.
 
 ## Privacy
 

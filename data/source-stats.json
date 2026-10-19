@@ -8,11 +8,16 @@
     "targetSdk": 35
   },
   "smali": {
-    "files": 4888,
-    "bytes": 32763290,
-    "by_top_level_directory": {
-      "club": 2962,
-      "com": 1926
+    "included_in_repository": false,
+    "files_in_repository": 0,
+    "bytes_in_repository": 0,
+    "upstream_reference": {
+      "files": 4888,
+      "bytes": 32763290,
+      "by_top_level_directory": {
+        "club": 2962,
+        "com": 1926
+      }
     }
   },
   "release_artifacts": {
@@ -36,14 +41,8 @@
     "minSdk": 23,
     "targetSdk": 33
   },
-  "redactions": {
-    "applied": true,
-    "files": 5,
-    "removed": [
-      "AES-192 key",
-      "AES-CBC IV",
-      "RSA private keys"
-    ],
-    "marker": "SECURITY REDACTION"
+  "source_distribution": {
+    "included": false,
+    "policy": "The decompiled source tree is not included in this repository."
   }
 }

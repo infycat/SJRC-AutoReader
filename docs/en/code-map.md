@@ -19,7 +19,7 @@ they drift, the function names and tables are the stable part.
 | `phone/src/index.html` | Page embedded in the APK; adds email/password sign-in and `__appPause`, and removes the browser-only Google flows. | `emailPreLogin()` at line 1302, `emailLoginByCode()` at 1336 |
 | `phone/src/*.smali` | Six official-client excerpts used as protocol evidence. | `BookReadViewModel`, `ParameterInterceptor`, … |
 | `pc/src/main.cpp` | Entire native Windows client. | `wWinMain`, `startRun()` at 1404, `workerLoop()` at 806 |
-| `sjrc-source/smali/` | 4,888 decompiled classes from the official 2.9.0 client. | `club/sjrc/app/net/`, `.../book/viewModel/` |
+| Upstream `smali/` path (not included) | 4,888-class 2.9.0 reference used during analysis; count is research metadata only. | `club/sjrc/app/net/`, `.../book/viewModel/` |
 | `data/` | Normalised endpoint tables and build statistics. | `api-endpoints.{csv,json}`, `source-stats.json` |
 | `docs/en`, `docs/zh` | Bilingual user and developer documentation. | `docs/README.md` |
 | `scripts/` | Offline checker, deterministic packager, local web server. | `check_repo.py`, `package_release.py` |
@@ -180,6 +180,9 @@ through the marshalling helpers. `WM_CLOSE` asks the worker to stop and waits fo
 
 ## Reference source (smali)
 
+The paths below describe locations in the upstream research reference, not files
+present in this repository. The curated endpoint data and analysis notes are in `data/`.
+
 | Path | What it contains |
 |---|---|
 | `sjrc-source/smali/club/sjrc/app/net/MainHttpService.smali` | Retrofit endpoint declarations, including `reading-time`, `reading-pos`, `books`, `bookshelf` |
@@ -200,10 +203,10 @@ record the source method in the `class` column.
 
 | File | Shape | Source of truth |
 |---|---|---|
-| `data/api-endpoints.csv` | 98 rows: `http,path,method,class,description` | `sjrc-source/smali` annotations |
+| `data/api-endpoints.csv` | 98 rows: `http,path,method,class,description` | Upstream 2.9.0 annotations (source tree not included) |
 | `data/api-endpoints.json` | 98 methods, 67 unique method+path pairs | same |
 | `data/api-endpoints-by-module.md` | Grouped summary | generated from the JSON |
-| `data/source-stats.json` | Version, SDKs, class count, artifact hashes | APK/manifest and release binaries |
+| `data/source-stats.json` | Version, SDKs, upstream counts, included-source count, artifact hashes | Research notes and release binaries |
 | `SHA256SUMS` | Download hashes | artifacts as shipped |
 
 The JSON includes a synthetic `(dynamic @Url)` path for methods whose URL is

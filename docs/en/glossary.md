@@ -43,7 +43,7 @@ first document to read; it is not an exhaustive index.
 
 | Term | Meaning | Used in |
 |---|---|---|
-| **Smali** | Human-readable disassembly of DEX bytecode. The repository keeps 4,888 classes as byte-level evidence. | [Reverse engineering](reverse-engineering.md#why-smali-not-java) |
+| **Smali** | Human-readable disassembly of DEX bytecode. The 4,888-class count describes the upstream research reference; the full tree is not included. | [Reverse engineering](reverse-engineering.md#why-smali-not-java) |
 | **APK / APKS** | Android package / split-package set. The official 2.9.0 distribution is an APKS with base + ABI + density + language splits. | [Reverse engineering](reverse-engineering.md#target) |
 | **Retrofit** | HTTP client library used by the official app; endpoints are declared as annotated Java methods. | [API](api.md#transport) |
 | **OkHttp** | HTTP transport under Retrofit. The official client configures 60-second timeouts, no redirects, and no certificate pinning. | [Reverse engineering](reverse-engineering.md#request-pipeline) |

@@ -53,7 +53,6 @@ REQUIRED = [
     ".github/ISSUE_TEMPLATE/config.yml",
     "web/SJRC_AutoReader.html", "phone/SJRC-AutoRead.apk",
     "pc/SJRC_AutoReader.exe", "pc/src/main.cpp", "pc/src/build.bat",
-    "sjrc-source/AndroidManifest.xml", "sjrc-source/net_endpoints.json",
 ]
 
 # Binary or vendored trees that are not useful for link/secret scanning.
@@ -287,8 +286,10 @@ def check_data() -> None:
 
     try:
         stats = json.loads(read_text(ROOT / "data/source-stats.json"))
-        files = len(list((ROOT / "sjrc-source" / "smali").rglob("*.smali")))
-        assert stats["smali"]["files"] == files == 4888, (stats["smali"]["files"], files)
+        assert stats["smali"]["included_in_repository"] is False
+        assert stats["smali"]["files_in_repository"] == 0
+        assert not (ROOT / "sjrc-source").exists(), "decompiled source tree must not be distributed"
+        assert stats["smali"]["upstream_reference"]["files"] == 4888
         for name, info in stats["release_artifacts"].items():
             target = ROOT / name
             assert target.stat().st_size == info["bytes"], name
@@ -328,8 +329,6 @@ def check_data() -> None:
 
     try:
         ET.parse(ROOT / "phone" / "src" / "AndroidManifest.xml")
-        # sjrc-source/AndroidManifest.xml is a decoded attribute dump, not XML.
-        assert (ROOT / "sjrc-source" / "AndroidManifest.xml").stat().st_size > 40000
         ok()
     except Exception as exc:  # noqa: BLE001
         fail(f"invalid AndroidManifest.xml: {exc}")
@@ -406,32 +405,14 @@ def check_secrets() -> None:
 
 
 # --------------------------------------------------------------------------
-# Redaction markers
+# Source distribution policy
 # --------------------------------------------------------------------------
 
-REDACTED_FILES = [
-    "sjrc-source/smali/club/sjrc/app/utils/AES.smali",
-    "sjrc-source/smali/club/sjrc/app/utils/AESDecrypt.smali",
-    "sjrc-source/smali/club/sjrc/app/BuildConfig.smali",
-    "sjrc-source/smali/club/sjrc/app/utils/RSAOAEPDecryptor.smali",
-    "sjrc-source/smali/club/sjrc/app/utils/RSAOAEPDecryptor$privateKey$2.smali",
-]
-
-
-def check_redactions() -> None:
-    for name in REDACTED_FILES:
-        path = ROOT / name
-        if not path.exists():
-            fail(f"redacted file missing: {name}")
-            continue
-        if "SECURITY REDACTION" not in read_text(path):
-            fail(f"redaction marker missing in {name}")
-        else:
-            ok()
+def check_source_distribution() -> None:
     try:
         stats = json.loads(read_text(ROOT / "data" / "source-stats.json"))
-        if not stats.get("redactions", {}).get("applied"):
-            fail("data/source-stats.json does not record applied redactions")
+        if stats.get("source_distribution", {}).get("included") is not False:
+            fail("data/source-stats.json claims decompiled source is distributed")
         else:
             ok()
     except Exception as exc:  # noqa: BLE001
@@ -468,7 +449,7 @@ def main() -> int:
     check_parity()
     check_data()
     check_web_script(args.no_node)
-    check_redactions()
+    check_source_distribution()
     check_secrets()
     check_yaml()
 

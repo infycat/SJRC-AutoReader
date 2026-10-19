@@ -9,7 +9,7 @@
 - [ ] Windows (`pc/`)
 - [ ] Documentation (`docs/`, root README)
 - [ ] Data / tooling / CI
-- [ ] Reference source only (`sjrc-source/`, no behavioural change)
+- [ ] Reference-derived documentation/data only (no behavioural change)
 
 ## Protocol impact
 

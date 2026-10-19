@@ -10,7 +10,7 @@
 本儲存庫的原創程式碼與文件以 [LICENSE](../../LICENSE) 的 MIT 授權釋出。MIT
 **不**涵蓋：
 
-- SJRC 客戶端、`sjrc-source/` 下的反編譯類別，或 `phone/src/` 的 smali 節錄
+- SJRC 客戶端、完整反編譯來源樹（本庫不散布），或 `phone/src/` 的 smali 節錄
 - 書籍內容、封面、metadata 或商標
 - 客戶端引用的第三方程式庫與引擎
 - 「SJRC」、「金閱閣」、「校園版」名稱

@@ -7,8 +7,8 @@
 **A protocol-faithful reading-time client for 金閱閣校園版 (SJRC 2.9.0)**
 
 One behavioural contract, three independent builds, zero runtime dependencies.
-The repository also carries the decompiled reference source used to recover the
-protocol, so every network claim can be audited.
+Endpoint and behavior documentation is based on the public 2.9.0 client
+reference; the full decompiled source tree is not redistributed here.
 
 <br>
 
@@ -238,11 +238,6 @@ SJRC-AutoReader-Repo/
 │       ├── main.cpp              # entire Windows client
 │       ├── build.bat · app.rc · app.ico
 │       └── README.md
-├── sjrc-source/
-│   ├── smali/                    # 4,888 classes, cryptographic constants redacted
-│   ├── AndroidManifest.xml
-│   ├── net_endpoints.json        # 98 extracted Retrofit methods
-│   └── README.md
 ├── data/                         # clean endpoint tables + source statistics
 ├── examples/                     # .http request recipes (no credentials)
 ├── docs/

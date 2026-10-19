@@ -6,7 +6,8 @@
 與公開 Swagger 文件交叉驗證。本頁記錄方法、證據與結論的界線，不只列最後的端點。
 
 > **界線。** 分析是為了互通性與協議理解。儲存庫不含可用的內容金鑰、憑證或
-> 使用者資料。反編譯類別中與內容層有關的程式碼仍作為證據保留，但金鑰常數已移除。
+> 使用者資料。本儲存庫不散布完整反編譯來源樹；協議證據以整理後的端點資料與
+> 少量外殼節錄呈現。
 > 見 [法律與可接受使用](legal.md) 與 [NOTICE.md](../../NOTICE.md)。
 
 ## 分析對象
@@ -18,13 +19,13 @@
 | 散佈形態 | `.apks` 分卷：base + arm64-v8a + xxhdpi + zh |
 | `base.apk` | 116,959,933 bytes |
 | DEX 數量 | 6，合計約 53 MB |
-| 簽入的 smali 類別 | 4,888 |
+| 上游參考 smali 類別數（未隨庫散布） | 4,888 |
 | `minSdk` / `targetSdk` | 26 / 35 |
 | 混淆 | 部分 —— `club.sjrc.app.*` 與 `com.middle.*` 保留原名 |
-| 簽入的參考 | `sjrc-source/smali/`、`AndroidManifest.xml`、`net_endpoints.json` |
+| 隨庫提供的參考 | `data/api-endpoints.csv/json`、本文件與 `phone/src/` 節錄 |
 
-參考樹不是完整應用程式：它是理解網路與閱讀迴圈所需類別的完整 smali，加上解碼
-manifest 與正規化端點表。它足以稽核本頁主張，但不是可重新散布的 App 重建。
+上述檔案數是研究時觀察到的上游參考統計，不代表本儲存庫包含那些類別。完整
+反編譯樹及官方 APK 均未隨庫提供；本頁結論以已整理資料與公開規格說明。
 
 ## 研究問題與方法
 
@@ -45,7 +46,7 @@ SJRC_2.9.0.apks
   └─ 解包
        └─ base.apk
             ├─ aapt2 dump badging/xmltree → AndroidManifest.xml
-            ├─ baksmali                   → sjrc-source/smali/   （位元級真相）
+            ├─ baksmali                   → 外部研究用參考（不隨庫散布）
             ├─ androguard / jadx          → 可讀 Java            （失真，未附）
             ├─ strings / grep             → 端點字串
             └─ swagger-json               → DTO 與錯誤碼交叉比對
@@ -54,8 +55,7 @@ SJRC_2.9.0.apks
 ## 還原 manifest 與 SDK
 
 `aapt2 dump badging base.apk` 不執行程式就能取得套件、版本、SDK 等級與啟動
-activity。解碼後的 manifest 放在 `sjrc-source/AndroidManifest.xml`，讓權限與
-元件名稱可以用純文字檢視。
+activity。官方 APK 與解碼後 manifest 不隨本儲存庫提供；這些資訊僅作為分析紀錄。
 
 要分清楚兩個 App：
 
@@ -195,9 +195,8 @@ isRemainTimeLessThan20() = (totalQuota - usedQuota) <= totalQuota * 0.2f
 
 ## 還原端點表
 
-Retrofit 註解掛在介面方法上。簽入的 `net_endpoints.json` 是機器抽取的 98 個
-方法；`data/` 正規化成 CSV 與 JSON，共 67 個唯一 `METHOD + path`。抽取保留
-所屬類別，讓主張可以追回 smali。
+Retrofit 註解掛在介面方法上。`data/` 收錄整理後的 98 個方法與 67 個唯一
+`METHOD + path`，保留所屬類別作為研究索引；完整反編譯來源不隨庫提供。
 
 讀表時要注意三個慣例：
 
@@ -206,7 +205,7 @@ Retrofit 註解掛在介面方法上。簽入的 `net_endpoints.json` 是機器�
 - 出現在表裡不代表本專案會呼叫。實際使用的只有
   [API 參考](api.md#本專案使用的端點) 列出的路由。
 
-重現原始端點搜尋：
+若你另行合法取得參考副本，可用以下命令搜尋端點（本儲存庫不含 `sjrc-source/`）：
 
 ```bash
 grep -rn "reading-time" sjrc-source/smali | head
@@ -241,19 +240,20 @@ grep -rn "accounts/users" sjrc-source/smali | head
          用 APK 內嵌的 RSA 私鑰解密
 ```
 
-記錄這段只是解釋官方 App 為何能顯示受保護書籍、以及本專案為何不做。本公開鏡像
-已把內嵌的 AES 金鑰、CBC IV 與 RSA 私鑰替換為佔位符，因此簽入的反編譯類別無法
-解密受保護內容。三個客戶端從不實作或呼叫這一層，也從不請求 `booksKey`。加入可
+記錄這段只是解釋官方 App 為何能顯示受保護書籍、以及本專案為何不做。本儲存庫
+不包含完整反編譯類別或官方 APK，因此沒有可用於解密受保護內容的素材。三個客戶端
+從不實作或呼叫這一層，也從不請求 `booksKey`。加入可
 用的內容存取路徑會讓專案從協議互通跨進規避，超出範圍。見
 [法律](legal.md#不繞過-drm)。
 
-### 金鑰素材的移除
+### 金鑰素材與來源範圍
 
-`sjrc-source/smali/` 下有五個檔案帶有 `SECURITY REDACTION` 標記。這棵樹與原始 APK
-並非逐位元組相同，不能用來重建官方客戶端，也不含可用金鑰素材。
-`data/source-stats.json` 記錄了移除內容。原始 APK 並未隨本儲存庫散布。
+完整反編譯樹並未隨本儲存庫散布。`data/source-stats.json` 將研究時的上游規模與
+本庫實際收錄數分開記錄；官方 APK 也未隨庫提供。
 
 ## 瀏覽源碼
+
+以下命令適用於你已合法取得的外部參考副本；本儲存庫不含 `sjrc-source/`：
 
 ```bash
 # 找類別
@@ -276,8 +276,7 @@ grep -rn "reading-time" sjrc-source/smali | head
 | `com/middle/network/` | `BodyBuilder`、`NetResponse` |
 | `com/skytree/epub/` | 分頁引擎 —— 頁數在這裡算 |
 
-`phone/src/*.smali` 的節錄是給不想走完整棵樹的審閱者的捷徑。它們複製自同一個
-2.9.0 建置，未經修改。
+`phone/src/*.smali` 是少量協議節錄；完整上游來源樹不在本儲存庫中。
 
 ## 限制與維護
 
@@ -289,5 +288,5 @@ grep -rn "reading-time" sjrc-source/smali | head
 
 ## 聲明
 
-公開散布 APK 的反編譯輸出，僅供互通性研究。著作權屬原權利人。不含金鑰、憑證、
+公開 APK 的分析結果僅供互通性研究；本儲存庫不散布完整反編譯輸出。著作權屬原權利人。不含金鑰、憑證、
 token 或個資。如需移除，請開 issue。

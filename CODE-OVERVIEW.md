@@ -45,11 +45,6 @@ SJRC-AutoReader-Repo/
 │       ├── build.bat             windres + g++ 靜態連結
 │       ├── app.rc / app.ico      資源與圖示
 │       └── README.md             建置、登入、登錄檔說明
-├── sjrc-source/
-│   ├── smali/                    4,888 個官方客戶端類別的 smali（43 MB；金鑰素材已替換）
-│   ├── AndroidManifest.xml       官方 2.9.0 manifest（解碼後文字）
-│   ├── net_endpoints.json        Retrofit 註解抽出的 98 個方法
-│   └── README.md                 反編譯樹的來源、套件分佈、保真度
 ├── data/
 │   ├── api-endpoints.csv/json    清理後的端點表（98 方法 / 67 唯一路徑）
 │   ├── api-endpoints-by-module.md
@@ -396,16 +391,12 @@ mul-long/2addr v1, v3        ; time = 3 * errorTime
 `remain <= total * 0.2`，不是「剩 20 分鐘」。函式名容易誤導，文件與程式都應以
 比例為準。
 
-## 7. 反編譯素材：`sjrc-source/`
+## 7. 官方客戶端參考資料（來源樹不隨庫散布）
 
-- 來源：`SJRC_2.9.0.apks` 的 `base.apk`，6 個 DEX。
-- 工具：androguard 4.1.4 + 自寫 AXML/ARSC/smali 匯出器（見 `BUILD.md`，未隨
-  倉庫提供）。
-- 規模：4,888 個 class，43 MB；套件分佈：`club.sjrc.app` 2,952、
-  `com.reader.epic` 1,428、`com.skytree` 375、`com.middle` 95、
-  `com.sjrc.baseapp` 28、`club.bookcentro.test` 10。
-- 保真度：smali 是無損的；DAD 還原的 Java 不可直接編譯。
-- 不含：原始 DEX、`resources.arsc` 二進位、`lib/*.so`、書籍內容；金鑰素材已替換為佔位符。
+本專案的協議分析以公開散布的 SJRC 2.9.0 客戶端為研究對象，但不在儲存庫中
+散布完整反編譯來源樹或官方 APK。`data/source-stats.json` 將研究時記錄的上游
+smali 規模（4,888 個檔案、32,763,290 bytes）與本庫收錄量（0）分開列出；端點
+索引與分析結論則保存在 `data/` 及雙語文件。這些統計是研究紀錄，不是本庫檔案清單。
 
 ## 8. 資料與工具
 
@@ -414,7 +405,7 @@ mul-long/2addr v1, v3        ; time = 3 * errorTime
 | `data/api-endpoints.csv` | 人可讀的端點表；適合 grep / Excel |
 | `data/api-endpoints.json` | 機器可讀；含 class/method/http/path |
 | `data/api-endpoints-by-module.md` | 按前綴分組的統計 |
-| `data/source-stats.json` | 版本、SDK、smali 檔數、成品 SHA-256 |
+| `data/source-stats.json` | 版本、SDK、上游參考規模、本庫來源收錄量、成品 SHA-256 |
 | `SHA256SUMS` | 三個成品與關鍵資料的校驗碼 |
 | `scripts/check_repo.py` | 連結、文件中英配對、資料一致性、校驗碼、SVG/XML、秘密掃描 |
 | `scripts/package_release.py` | 可重現的 zip（固定時間戳、排序、排除快取） |
@@ -476,8 +467,8 @@ Windows 重建見 [`pc/src/README.md`](pc/src/README.md)；Android 重建需要 
 
 1. `phone/src/` 沒有 `MainActivity.smali` 完整檔，只有 README 中的節錄；外殼
    APK 內有 6 個類別。若要做完整重建，需從 APK 反組譯。
-2. `repo/sjrc-source/net_endpoints.json` 的 `hdr` 欄位是損壞的 androguard 物件
-   字串；`data/api-endpoints.*` 已排除它，只保留可靠欄位。
+2. 研究時原始端點匯出資料的 `hdr` 欄位是損壞的 androguard 物件字串；
+   `data/api-endpoints.*` 已排除它，只保留可靠欄位。原始匯出不隨庫提供。
 3. 文件中「官方 minSdk 26 / 外殼 minSdk 23」必須分開寫，不要合併成一個數字。
 4. 網頁版只依賴 Google GIS 登入；沒有網路或 origin 不在白名單時就無法登入
    （但模擬模式仍可操作 UI）。電郵登入只存在於 Android 內嵌頁。

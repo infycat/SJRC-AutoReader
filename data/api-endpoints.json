@@ -1,5 +1,5 @@
 {
-  "generated_from": "sjrc-source/net_endpoints.json",
+  "generated_from": "public 2.9.0 client reference; decompiled source is not included",
   "method_count": 98,
   "unique_endpoint_count": 67,
   "note": "Extracted from Retrofit annotations in the 2.9.0 DEX. Paths are shown with a leading slash. Dynamic @Url declarations have no fixed path. No credentials or request headers are included.",

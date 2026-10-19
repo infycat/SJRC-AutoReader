@@ -68,8 +68,8 @@ No Android SDK is required to read or review the Android wrapper.
   is edited directly. Do not introduce a bundler.
 - `web/src/README.md`, `phone/src/README.md`, and `pc/src/README.md` explain the
   layout next to each artifact.
-- `sjrc-source/smali/` is generated reference material. Do not format it; add a
-  note in `sjrc-source/README.md` if a file needs explanation.
+- The full decompiled reference tree is not distributed in this repository.
+  Keep protocol notes in `data/` and the bilingual documentation.
 - Docs are bilingual. Every `docs/en/X.md` needs a matching `docs/zh/X.md` with
   the same set of headings and links. `scripts/check_repo.py` enforces parity.
 - Code identifiers and API field names stay in English. Prose may be English or

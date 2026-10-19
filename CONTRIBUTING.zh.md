@@ -62,8 +62,7 @@ python3 scripts/check_repo.py         # 離線文件與資料檢查
 - 網頁版**成品即原始碼**：直接編輯 `web/SJRC_AutoReader.html`，不要引入 bundler。
 - 各成品旁的 `web/src/README.md`、`phone/src/README.md`、`pc/src/README.md`
   說明佈局。
-- `sjrc-source/smali/` 是產生的參考素材，不要格式化；若某檔案需要說明，請在
-  `sjrc-source/README.md` 加註。
+- 本儲存庫不散布完整反編譯參考樹。協議整理請維護在 `data/` 與雙語文件中。
 - 文件是雙語。每個 `docs/en/X.md` 都需要對應的 `docs/zh/X.md`，且標題與連結
   集合一致。`scripts/check_repo.py` 會檢查。
 - 程式識別字與 API 欄位名保持英文；說明文字可用英文或繁體中文。

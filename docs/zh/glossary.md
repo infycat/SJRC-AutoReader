@@ -42,7 +42,7 @@
 
 | 名詞 | 意思 | 用於 |
 |---|---|---|
-| **Smali** | DEX 位元碼的可讀反組譯。儲存庫保留 4,888 個類別作為位元級證據。 | [逆向分析](reverse-engineering.md#為什麼以-smali-為準) |
+| **Smali** | DEX 位元碼的可讀反組譯。4,888 是上游研究參考數量；完整來源樹不隨本庫提供。 | [逆向分析](reverse-engineering.md#為什麼以-smali-為準) |
 | **APK / APKS** | Android 安裝包／分卷包。官方 2.9.0 是 APKS：base + ABI + 密度 + 語言分卷。 | [逆向分析](reverse-engineering.md#分析對象) |
 | **Retrofit** | 官方 App 使用的 HTTP 客戶端函式庫；端點以註解方法宣告。 | [API](api.md#傳輸) |
 | **OkHttp** | Retrofit 底層的 HTTP 傳輸。官方設定 60 秒逾時、不跟隨重導、不憑證釘選。 | [逆向分析](reverse-engineering.md#請求管線) |

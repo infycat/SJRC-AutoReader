@@ -17,7 +17,7 @@
 | `phone/src/index.html` | 嵌進 APK 的頁面；多了電郵密碼登入與 `__appPause`，移除僅瀏覽器可用的 Google 流程。 | 1302 行 `emailPreLogin()`、1336 行 `emailLoginByCode()` |
 | `phone/src/*.smali` | 六個官方客戶端節錄，作為協議證據。 | `BookReadViewModel`、`ParameterInterceptor` 等 |
 | `pc/src/main.cpp` | 整個原生 Windows 客戶端。 | `wWinMain`、1404 行 `startRun()`、806 行 `workerLoop()` |
-| `sjrc-source/smali/` | 官方 2.9.0 客戶端的 4,888 個反編譯類別。 | `club/sjrc/app/net/`、`.../book/viewModel/` |
+| 上游 `smali/` 路徑（未隨庫提供） | 研究所用的官方 2.9.0 參考，共 4,888 類；此數字僅為研究統計。 | `club/sjrc/app/net/`、`.../book/viewModel/` |
 | `data/` | 正規化端點表與建置統計。 | `api-endpoints.{csv,json}`、`source-stats.json` |
 | `docs/en`、`docs/zh` | 雙語使用者與開發文件。 | `docs/README.md` |
 | `scripts/` | 離線檢查器、可重現打包器、本機網頁伺服器。 | `check_repo.py`、`package_release.py` |
@@ -173,6 +173,9 @@ post `WM_APP_STATE`，並透過封送輔助寫日誌。`WM_CLOSE` 會要求 work
 
 ## 參考源碼（smali）
 
+以下路徑描述上游研究參考中的位置，並非本儲存庫實際檔案；整理後的端點資料與
+分析紀錄位於 `data/`。
+
 | 路徑 | 內容 |
 |---|---|
 | `sjrc-source/smali/club/sjrc/app/net/MainHttpService.smali` | Retrofit 端點宣告，含 `reading-time`、`reading-pos`、`books`、`bookshelf` |
@@ -192,10 +195,10 @@ post `WM_APP_STATE`，並透過封送輔助寫日誌。`WM_CLOSE` 會要求 work
 
 | 檔案 | 形狀 | 真相來源 |
 |---|---|---|
-| `data/api-endpoints.csv` | 98 列：`http,path,method,class,description` | `sjrc-source/smali` 的註解 |
+| `data/api-endpoints.csv` | 98 列：`http,path,method,class,description` | 上游 2.9.0 註解（來源樹不隨庫提供） |
 | `data/api-endpoints.json` | 98 個方法、67 個唯一 method+path | 同上 |
 | `data/api-endpoints-by-module.md` | 依模組分組的摘要 | 由 JSON 產生 |
-| `data/source-stats.json` | 版本、SDK、類別數、成品雜湊 | APK／manifest 與發行二進位 |
+| `data/source-stats.json` | 版本、SDK、上游統計、本庫來源收錄量、成品雜湊 | 研究紀錄與發行二進位 |
 | `SHA256SUMS` | 下載雜湊 | 實際出貨成品 |
 
 JSON 對執行期才給 URL 的方法使用合成路徑 `(dynamic @Url)`。重新產生時保留這個

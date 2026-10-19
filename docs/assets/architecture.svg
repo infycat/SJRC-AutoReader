@@ -67,7 +67,7 @@
   <text x="70" y="670" class="s" font-size="12">Only the account owner's token is sent. No backend, proxy, telemetry or analytics.</text>
   <rect x="772" y="540" width="380" height="156" rx="18" fill="#f1f6f7" stroke="#b8cdd2"/>
   <text x="794" y="568" class="lbl">REFERENCE MATERIAL</text>
-  <text x="794" y="596" class="t" font-size="16" font-weight="650">sjrc-source/ · 4,888 smali classes</text>
+  <text x="794" y="596" class="t" font-size="16" font-weight="650">Curated protocol data · source not included</text>
   <text x="794" y="620" class="m" font-size="12.5">Decompiled from the public 2.9.0 client</text>
   <text x="794" y="642" class="m" font-size="12.5">Used to recover headers, units and flow</text>
   <text x="794" y="668" class="s" font-size="12">Research reference — not linked into any build</text>

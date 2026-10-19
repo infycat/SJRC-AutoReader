@@ -10,8 +10,8 @@
 Original code and documentation in this repository are released under the MIT
 licence in [LICENSE](../../LICENSE). The MIT licence does **not** cover:
 
-- The SJRC client, its decompiled classes under `sjrc-source/`, or the smali
-  excerpts in `phone/src/`
+- The SJRC client, any full decompiled source tree (not distributed here), or
+  the smali excerpts in `phone/src/`
 - Book content, covers, metadata, or trademarks
 - Third-party libraries and engines referenced by the client
 - The names “SJRC”, “金閱閣”, or “校園版”

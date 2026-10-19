@@ -6,8 +6,8 @@
 
 **金閱閣校園版（SJRC 2.9.0）的協議忠實閱讀時數客戶端**
 
-同一套行為契約、三個獨立成品、零執行期依賴。儲存庫也保留反編譯參考源碼，
-讓每個網路主張都能被稽核。
+同一套行為契約、三個獨立成品、零執行期依賴。端點與行為文件依據公開的
+2.9.0 客戶端資料整理；儲存庫不散布完整反編譯來源樹。
 
 <br>
 
@@ -225,11 +225,6 @@ SJRC-AutoReader-Repo/
 │       ├── main.cpp              # 整個 Windows 客戶端
 │       ├── build.bat · app.rc · app.ico
 │       └── README.md
-├── sjrc-source/
-│   ├── smali/                    # 官方 2.9.0 的 4,888 個類別（金鑰已移除）
-│   ├── AndroidManifest.xml
-│   ├── net_endpoints.json        # 98 個抽取出的 Retrofit 方法
-│   └── README.md
 ├── data/                         # 乾淨端點表與源碼統計
 ├── examples/                     # .http 請求範例（不含憑證）
 ├── docs/

@@ -67,7 +67,7 @@
   <text x="70" y="670" class="s" font-size="12">只傳送帳號持有者的 token；沒有後端、代理、遙測或分析。</text>
   <rect x="772" y="540" width="380" height="156" rx="18" fill="#f1f6f7" stroke="#b8cdd2"/>
   <text x="794" y="568" class="lbl">參考資料</text>
-  <text x="794" y="596" class="t" font-size="16" font-weight="650">sjrc-source/ · 4,888 個 smali 類別</text>
+  <text x="794" y="596" class="t" font-size="16" font-weight="650">協議整理資料 · 不含完整來源</text>
   <text x="794" y="620" class="m" font-size="12.5">從公開的 2.9.0 客戶端反編譯而來</text>
   <text x="794" y="642" class="m" font-size="12.5">用於還原標頭、單位與流程</text>
   <text x="794" y="668" class="s" font-size="12">僅供研究參考；未編入任何成品</text>

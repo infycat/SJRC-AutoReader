@@ -8,9 +8,9 @@ document. This page records the method, the evidence, and the limits of the
 conclusions — not just the final endpoint list.
 
 > **Boundary.** The analysis is for interoperability and protocol understanding.
-> The repository contains no live content keys, credentials, or user data.
-> Decompiled classes that reference the content layer remain as evidence, but
-> their key constants are redacted. See [Legal and acceptable use](legal.md) and
+> The repository contains no live content keys, credentials, or user data. The
+> full decompiled source tree is not redistributed; protocol evidence is presented
+> through curated endpoint data and small wrapper excerpts. See [Legal and acceptable use](legal.md) and
 > [NOTICE.md](../../NOTICE.md).
 
 ## Target
@@ -22,15 +22,15 @@ conclusions — not just the final endpoint list.
 | Distribution | `.apks` split set: base + arm64-v8a + xxhdpi + zh |
 | `base.apk` | 116,959,933 bytes |
 | DEX files | 6, about 53 MB total |
-| Classes in checked-in smali | 4,888 |
+| Upstream reference smali classes (not distributed) | 4,888 |
 | `minSdk` / `targetSdk` | 26 / 35 |
 | Obfuscation | Partial — `club.sjrc.app.*` and `com.middle.*` keep their names |
-| Checked-in reference | `sjrc-source/smali/`, `AndroidManifest.xml`, `net_endpoints.json` |
+| Repository references | `data/api-endpoints.csv/json`, this documentation, and `phone/src/` excerpts |
 
-The reference tree is not the whole application: it is the full smali output of
-the classes needed to understand the network and reading loop, plus the decoded
-manifest and a normalised endpoint list. It is large enough to audit the claims,
-not a redistributable rebuild of the app.
+The class count is an upstream research statistic, not a claim that those files
+are in this repository. The full decompiled tree and official APK are not
+redistributed; this page documents conclusions alongside curated data and public
+specifications.
 
 ## Research question and method
 
@@ -54,7 +54,7 @@ SJRC_2.9.0.apks
   └─ unzip
        └─ base.apk
             ├─ aapt2 dump badging/xmltree → AndroidManifest.xml
-            ├─ baksmali                   → sjrc-source/smali/   (ground truth)
+            ├─ baksmali                   → external research reference (not distributed)
             ├─ androguard / jadx          → readable Java       (lossy; not shipped)
             ├─ strings / grep             → endpoint literals
             └─ swagger-json               → DTO and error cross-check
@@ -63,9 +63,8 @@ SJRC_2.9.0.apks
 ## Recovering the manifest and SDK levels
 
 `aapt2 dump badging base.apk` gives the package, version, SDK levels, and launch
-activity without executing anything. The decoded manifest is kept at
-`sjrc-source/AndroidManifest.xml` so the permissions and component names can be
-reviewed in plain text.
+activity without executing anything. The official APK and decoded manifest are
+not included; these values are recorded here as analysis notes.
 
 Two different apps matter:
 
@@ -213,10 +212,9 @@ Two details are easy to miss:
 
 ## Recovering the endpoint list
 
-Retrofit annotations live on interface methods. The checked-in
-`net_endpoints.json` is a machine-extracted list of 98 methods; `data/` normalises
-it into CSV and JSON with 67 unique `METHOD + path` pairs. The extraction keeps
-the owning class so a claim can be traced back to smali.
+Retrofit annotations live on interface methods. `data/` contains the curated list
+of 98 methods and 67 unique `METHOD + path` pairs, retaining owning-class names
+as research indexes. The full decompiled source is not included.
 
 Three conventions matter when reading the table:
 
@@ -228,7 +226,8 @@ Three conventions matter when reading the table:
   Only the routes listed in [API reference](api.md#endpoints-used-by-this-project)
   are called by the shipped clients.
 
-Reproduce the raw endpoint search with:
+For a separately obtained, legally acquired reference copy, reproduce the raw
+endpoint search with (the repository itself does not contain `sjrc-source/`):
 
 ```bash
 grep -rn "reading-time" sjrc-source/smali | head
@@ -265,21 +264,23 @@ key layer    RSA-2048 OAEP-SHA256
 ```
 
 This is recorded only to explain why the official app can display protected books
-and why this project does not. The public mirror replaces the embedded AES key,
-CBC IV, and RSA private keys with placeholders, so the checked-in decompiled
-classes cannot decrypt protected content. The three clients never implement or
+and why this project does not. The repository does not include the full decompiled
+classes or official APK, so it contains no material that can decrypt protected
+content. The three clients never implement or
 call this layer and never request `booksKey`. Adding a working content-access
 path would move the project from protocol interoperability into circumvention
 and is out of scope. See [Legal](legal.md#no-drm-circumvention).
 
-### Redaction of key material
+### Key material and source scope
 
-Five files under `sjrc-source/smali/` carry a `SECURITY REDACTION` banner. The
-tree is not byte-identical to the original APK, cannot rebuild the official
-client, and contains no working key material. `data/source-stats.json` records
-the redactions. The original APK itself is not redistributed here.
+The full decompiled tree is not redistributed. `data/source-stats.json` separates
+upstream research size from files actually included in this repository. The
+original APK is not redistributed here either.
 
 ## Navigating the source
+
+The following commands apply to a separately obtained reference copy; this
+repository does not contain `sjrc-source/`:
 
 ```bash
 # find a class
@@ -302,9 +303,8 @@ grep -rn "reading-time" sjrc-source/smali | head
 | `com/middle/network/` | `BodyBuilder`, `NetResponse` |
 | `com/skytree/epub/` | pagination engine — pages are computed here |
 
-The checked-in excerpts in `phone/src/*.smali` are a short path for reviewers who
-do not want to walk the full tree. They are copied from the same 2.9.0 build and
-are not modified.
+The small excerpts in `phone/src/*.smali` provide protocol context. The full
+upstream reference tree is not included in this repository.
 
 ## Limits and maintenance
 

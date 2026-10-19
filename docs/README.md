@@ -65,7 +65,7 @@ that parity.
 - **Just want to run it:** getting started → installation → troubleshooting
 - **Want to change the code:** code map → architecture → building → testing
 - **Want to audit it:** security → privacy → API reference → source in `web/` and `pc/`
-- **Want to understand the official client:** reverse engineering → API reference → `sjrc-source/README.md`
+- **Want to understand the official client:** reverse engineering → API reference → curated files in `data/` (the decompiled tree is not included)
 
 ## Conventions
 
@@ -131,7 +131,7 @@ that parity.
 - **只想執行**：快速開始 → 安裝 → 疑難排解
 - **想改程式**：程式碼地圖 → 架構 → 建置 → 測試
 - **想審核**：安全 → 隱私 → API 參考 → `web/` 與 `pc/` 原始碼
-- **想理解官方客戶端**：逆向工程 → API 參考 → `sjrc-source/README.md`
+- **想理解官方客戶端**：逆向工程 → API 參考 → `data/` 整理資料（不含完整反編譯樹）
 
 ## 慣例
 

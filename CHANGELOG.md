@@ -47,7 +47,8 @@ All notable changes to this project are documented here. The format follows
   registry-backed settings, and static linking
 - Decompiled client excerpts for the network interceptors, token manager,
   reading-time view model, request builder, and response entity
-- 4,888 smali files from the 2.9.0 client for protocol reference
+- Analysis notes and curated endpoint tables based on the 2.9.0 client reference;
+  the full decompiled source tree is not redistributed
 - English and Traditional Chinese documentation
 
 ### Security
