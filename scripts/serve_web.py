@@ -16,8 +16,10 @@ import socketserver
 import webbrowser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-WEB = ROOT / "web"
+SCRIPT_DIR = Path(__file__).resolve().parent
+# In a downloaded Web bundle, the HTML and this server sit side by side.
+# In the source repository, the server lives under scripts/ and the HTML is in web/.
+WEB = SCRIPT_DIR if (SCRIPT_DIR / "SJRC_AutoReader.html").is_file() else SCRIPT_DIR.parent / "web"
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):

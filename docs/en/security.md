@@ -32,7 +32,7 @@ handles them.
 | Another local user | Reads browser profile or registry | OS account separation | Token is plaintext at rest |
 | Malware on the device | Reads process memory, storage, keystrokes | OS security | Full compromise; out of scope |
 | Network attacker | Intercepts or redirects traffic | TLS verification; no redirects on Windows | No certificate pinning; a trusted MITM proxy can read traffic |
-| Malicious dependency | Executes in build or runtime | No runtime deps; CI reviews | Toolchain compromise; out of scope |
+| Malicious dependency | Executes in build or runtime | No third-party client runtime deps; CI reviews | Toolchain compromise; out of scope |
 | Malicious contribution | Adds exfiltration code | Review; `check_repo.py` secret scan | A determined contributor can hide logic |
 | Upstream service | Sees requests, may log them | Only send what is necessary | Upstream logging/retention is outside our control |
 | Shoulder surfer | Reads the screen | Tokens are not displayed after entry | Logs can show book titles |

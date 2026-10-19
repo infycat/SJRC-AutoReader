@@ -2,16 +2,16 @@
 
 **繁體中文** · [English](../en/installation.md)
 
-每個成品都是單一檔案。沒有安裝器、沒有背景服務、沒有自動更新、沒有執行期要裝。
+每個平台下載的是完整 ZIP 套件。沒有安裝器、背景服務或自動更新；網頁套件的啟動器需要 Python 3。
 最新版本請從 [GitHub Releases](https://github.com/infycat/SJRC-AutoReader/releases/latest) 下載。
 
 ## 選擇成品
 
 | | 網頁 | Android | Windows |
 |---|---|---|---|
-| 檔案 | [`SJRC_AutoReader.html`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html) | [`SJRC-AutoRead.apk`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk) | [`SJRC_AutoReader.exe`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe) |
-| 大小 | 86,464 B | 53,784 B | 991,237 B |
-| 安裝 | 無 | 側載 | 無 |
+| 下載 | [`SJRC-AutoReader-Web.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Web.zip) | [`SJRC-AutoReader-Android.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Android.zip) | [`SJRC-AutoReader-Windows.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Windows.zip) |
+| 內容 | HTML、Python 伺服器、Windows `.bat` 啟動器、說明 | APK、說明、授權、校驗碼 | EXE、說明、授權、校驗碼 |
+| 安裝 | 解壓後執行啟動器 | 解壓後側載 APK | 解壓後執行 EXE |
 | Google 登入 | ✅（需 HTTP origin） | ❌ | ✅ 經本機登入頁 |
 | 電郵 + 密碼 | ❌ | ✅ | ❌ |
 | 貼上 access token | ❌ | ❌ | ✅ |
@@ -20,21 +20,20 @@
 
 ## 驗證下載
 
-從[最新 Release](https://github.com/infycat/SJRC-AutoReader/releases/latest) 下載 `SHA256SUMS`，
-與成品放在相同目錄，再執行其中一種：
+從[最新 Release](https://github.com/infycat/SJRC-AutoReader/releases/latest) 下載所選平台 ZIP
+及相應的 `.zip.sha256` sidecar，先驗證 ZIP 再解壓。套件內的 `SHA256SUMS` 可驗證
+解壓後的內容：
 
 ```bash
 # Linux / macOS
-sha256sum -c SHA256SUMS
-# macOS 沒有 sha256sum 時
-shasum -a 256 web/SJRC_AutoReader.html phone/SJRC-AutoRead.apk pc/SJRC_AutoReader.exe
+sha256sum -c SJRC-AutoReader-Web.zip.sha256
+shasum -a 256 -c SJRC-AutoReader-Web.zip.sha256  # macOS
+sha256sum -c SHA256SUMS  # 解壓後，在套件資料夾內執行
 ```
 
 ```bat
-:: Windows
-certutil -hashfile web\SJRC_AutoReader.html SHA256
-certutil -hashfile phone\SJRC-AutoRead.apk SHA256
-certutil -hashfile pc\SJRC_AutoReader.exe SHA256
+:: Windows：將輸出與相應 .zip.sha256 內的雜湊比較
+certutil -hashfile SJRC-AutoReader-Web.zip SHA256
 ```
 
 預期值也在 `data/source-stats.json`。雜湊不符代表檔案被修改或損壞，不要執行。
@@ -43,7 +42,9 @@ certutil -hashfile pc\SJRC_AutoReader.exe SHA256
 
 ### 用 HTTP 提供
 
-Google Identity Services 需要 `http://` origin，不要用 `file://` 開啟。
+Google Identity Services 需要 `http://` origin，不要用 `file://` 開啟。下載網頁 ZIP
+解壓後，雙擊 `Start-SJRC-AutoReader.bat` 啟動內附伺服器並開啟頁面；電腦需安裝
+Python 3。macOS/Linux 可在解壓資料夾執行 `python3 serve_web.py`。
 
 ```bash
 cd web
@@ -78,7 +79,7 @@ Google 按鈕會顯示 origin 錯誤，不會發出 token。網頁版沒有其�
 
 ## Android
 
-1. 把 `phone/SJRC-AutoRead.apk` 複製到裝置（USB、雲端硬碟或 `adb`）。
+1. 解壓 Android ZIP，再把 `SJRC-AutoRead.apk` 複製到裝置（USB、雲端硬碟或 `adb`）。
 2. 用檔案管理員開啟。
 3. 提示時，為該檔案管理員允許**安裝未知應用程式**。
 4. 安裝並開啟 **SJRC AutoRead**。
@@ -104,7 +105,7 @@ App 的更新來安裝；簽章不同。
 
 ## Windows
 
-1. 把 `pc/SJRC_AutoReader.exe` 放到你能控制的資料夾。
+1. 將 Windows ZIP 解壓到你能控制的資料夾。
 2. 雙擊執行。因為二進位檔沒有程式碼簽章，SmartScreen 可能警告；只有在 SHA-256
    相符時才選**更多資訊 → 仍要執行**。
 3. 用本機登入頁登入，或貼上 token。

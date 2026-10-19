@@ -132,15 +132,15 @@ session，停止計時器。不會自動再開一輪。若平台額度用完，�
 
 ### 需要先裝 Node、Python 或執行環境嗎？
 
-正常使用不需要。網頁版是單一 HTML；Android 是 APK；Windows 是靜態執行檔。
-Python 3 只用來把網頁以 HTTP 提供，以及跑儲存庫檢查。Node 只在 CI 的選擇性
-語法檢查中使用。
+網頁版套件的啟動器需要 Python 3，因為 Google 登入要求本機 HTTP origin；Windows
+可雙擊 `Start-SJRC-AutoReader.bat` 啟動。Android APK 與 Windows 執行檔不需要額外
+執行環境。Node 只在 CI 的選擇性語法檢查中使用。
 
 ### 為什麼雙擊網頁是空白的？
 
 那個檔案設計成用 HTTP 提供。`file://` 的 origin 是 `null`，會讓 Google
-Identity Services 失敗，也可能讓 `fetch` 失敗。在 `web/` 執行
-`python3 -m http.server 8080`，開
+Identity Services 失敗，也可能讓 `fetch` 失敗。下載並解壓網頁套件後，在 Windows
+雙擊 `Start-SJRC-AutoReader.bat`；macOS/Linux 執行 `python3 serve_web.py`，再開
 `http://localhost:8080/SJRC_AutoReader.html`。
 
 ### 沒有 Android SDK 也能重建 APK 嗎？

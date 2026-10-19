@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.0.1] — 2026-10-20
+
+### Changed
+
+- Releases now provide complete per-platform ZIP bundles instead of loose app files.
+- The web bundle includes a Python HTTP server and Windows `.bat` launcher; all
+  bundles include a guide, licence, and internal checksums.
+- README and installation guides explain bundle extraction and verification.
+
 ### Added
 
 - Repository checker (`scripts/check_repo.py`) for links, docs parity, data

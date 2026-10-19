@@ -40,7 +40,8 @@ REQUIRED = [
     "SUPPORT.zh.md", "ROADMAP.md", "ROADMAP.zh.md", "AUTHORS.md", "NOTICE.md",
     "CITATION.cff", "CODE-OVERVIEW.md", "SHA256SUMS", "Makefile",
     ".editorconfig", ".gitattributes", ".gitignore",
-    "scripts/check_repo.py", "scripts/package_release.py", "scripts/serve_web.py",
+    "scripts/check_repo.py", "scripts/package_release.py", "scripts/package_downloads.py",
+    "scripts/serve_web.py",
     "data/README.md", "data/api-endpoints.csv", "data/api-endpoints.json",
     "data/api-endpoints-by-module.md", "data/source-stats.json",
     "docs/README.md", "docs/assets/banner.svg", "docs/assets/logo.svg",
@@ -51,7 +52,7 @@ REQUIRED = [
     ".github/ISSUE_TEMPLATE/bug_report.yml",
     ".github/ISSUE_TEMPLATE/feature_request.yml",
     ".github/ISSUE_TEMPLATE/config.yml",
-    "web/SJRC_AutoReader.html", "phone/SJRC-AutoRead.apk",
+    "web/SJRC_AutoReader.html", "web/Start-SJRC-AutoReader.bat", "phone/SJRC-AutoRead.apk",
     "pc/SJRC_AutoReader.exe", "pc/src/main.cpp", "pc/src/build.bat",
 ]
 

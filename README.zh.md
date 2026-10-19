@@ -6,14 +6,14 @@
 
 **金閱閣校園版（SJRC 2.9.0）的協議忠實閱讀時數客戶端**
 
-同一套行為契約、三個獨立成品、零執行期依賴。端點與行為文件依據公開的
+同一套行為契約、三個獨立成品。網頁套件附本機啟動器（需 Python 3）；端點與行為文件依據公開的
 2.9.0 客戶端資料整理；儲存庫不散布完整反編譯來源樹。
 
 <br>
 
-![版本](https://img.shields.io/badge/版本-1.0.0-2ea44f?style=flat-square)
+![版本](https://img.shields.io/badge/版本-1.0.1-2ea44f?style=flat-square)
 ![平台](https://img.shields.io/badge/平台-網頁%20%7C%20Android%20%7C%20Windows-43b7ff?style=flat-square)
-![依賴](https://img.shields.io/badge/執行期依賴-無-blue?style=flat-square)
+![依賴](https://img.shields.io/badge/網頁啟動器-Python%203-blue?style=flat-square)
 ![文件](https://img.shields.io/badge/文件-English%20%2B%20%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-2ee6a8?style=flat-square)
 ![授權](https://img.shields.io/badge/授權-MIT-black?style=flat-square)
 
@@ -39,7 +39,8 @@
 
 ## 📥 下載
 
-每個成品都只有一個檔案。沒有安裝器、沒有執行環境、沒有自動更新。
+每個平台提供完整 ZIP 套件，下載後先解壓縮。網頁套件包含 HTML、本機伺服器與
+Windows 啟動 `.bat`；Android 與 Windows 套件則包含應用程式、說明、授權及校驗碼。
 
 <table>
 <tr>
@@ -47,48 +48,46 @@
 
 ### 🌐 網頁
 
-[**下載 `SJRC_AutoReader.html`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html)
+[**下載網頁套件**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Web.zip)
 
-<sub>86,464 B · 單一檔案</sub>
-
-<sub>`d42615d827eeeb21…`</sub>
+<sub>HTML · 啟動 `.bat` · 本機伺服器 · 說明 · SHA256SUMS</sub>
 
 </td>
 <td align="center" width="33%">
 
 ### 📱 手機
 
-[**下載 `SJRC-AutoRead.apk`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk)
+[**下載 Android 套件**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Android.zip)
 
-<sub>53,784 B · minSdk 23</sub>
-
-<sub>`a8959831023403cc…`</sub>
+<sub>APK · 安裝說明 · 授權 · SHA256SUMS</sub>
 
 </td>
 <td align="center" width="33%">
 
 ### 💻 電腦
 
-[**下載 `SJRC_AutoReader.exe`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe)
+[**下載 Windows 套件**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Windows.zip)
 
-<sub>991,237 B · 靜態 x64</sub>
-
-<sub>`125d1ff535754b2c…`</sub>
+<sub>EXE · 使用說明 · 授權 · SHA256SUMS</sub>
 
 </td>
 </tr>
 </table>
 
-用 [`SHA256SUMS`](SHA256SUMS) 驗證每個檔案：
+每個 ZIP 旁都有 `.zip.sha256` 可驗證套件；解壓後，套件內的 `SHA256SUMS` 可驗證
+其中所有檔案。網頁套件在 Windows 上雙擊 `Start-SJRC-AutoReader.bat` 即可啟動。
+
+驗證下載套件（以網頁版為例）：
 
 ```bash
-sha256sum -c SHA256SUMS          # Linux
-shasum -a 256 -c SHA256SUMS      # macOS
+sha256sum -c SJRC-AutoReader-Web.zip.sha256  # Linux
+shasum -a 256 -c SJRC-AutoReader-Web.zip.sha256  # macOS
 ```
 
-上面的短雜湊只是前綴，完整 SHA-256 可在[最新 Releases](https://github.com/infycat/SJRC-AutoReader/releases/latest)
-下載的 `SHA256SUMS` 中驗證。若雜湊不符，請停止並不要執行。各平台的安裝與卸載
-步驟見[安裝](docs/zh/installation.md#驗證下載)。
+Windows：執行 `certutil -hashfile SJRC-AutoReader-Web.zip SHA256`，再與 sidecar 內的值比較。
+
+若雜湊不符，請停止並不要執行。各平台的解壓、安裝與卸載步驟見
+[安裝](docs/zh/installation.md#驗證下載)。
 
 ---
 
@@ -97,9 +96,8 @@ shasum -a 256 -c SHA256SUMS      # macOS
 ### 網頁 · 最容易稽核
 
 ```bash
-cd web
-python3 -m http.server 8080
-# 開 http://localhost:8080/SJRC_AutoReader.html
+# 下載並解壓網頁套件後，Windows 雙擊 Start-SJRC-AutoReader.bat
+# macOS/Linux 在套件資料夾執行：python3 serve_web.py
 ```
 
 頁面必須用 HTTP 提供。`file://` 的 origin 是 `null`，會讓 Google Identity

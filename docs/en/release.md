@@ -29,37 +29,45 @@ version. Both numbers appear in the docs; do not confuse them.
 ## Build the archive
 
 ```bash
-python3 scripts/package_release.py --version 1.0.0
+python3 scripts/package_release.py --version 1.0.1
+python3 scripts/package_downloads.py
 ```
 
-The script creates `dist/SJRC-AutoReader-Repo-1.0.0.zip` with:
+The scripts create a source archive and three platform bundles:
 
-- the tracked repository files,
-- a deterministic order and timestamps,
-- no `.git`, caches, `dist`, or generated check files.
+- `SJRC-AutoReader-Repo-1.0.1.zip`: complete repository snapshot.
+- `SJRC-AutoReader-Web.zip`: HTML, local HTTP server, Windows `.bat` launcher, guide, licence, and internal checksums.
+- `SJRC-AutoReader-Android.zip`: APK, install guide, licence, and internal checksums.
+- `SJRC-AutoReader-Windows.zip`: EXE, usage guide, licence, and internal checksums.
+- Each ZIP has a matching `.zip.sha256` sidecar.
+
+The source archive has deterministic ordering and timestamps and excludes `.git`,
+caches, `dist`, and generated check files.
 
 Verify the archive:
 
 ```bash
-unzip -t dist/SJRC-AutoReader-Repo-1.0.0.zip
-python3 scripts/check_repo.py --archive dist/SJRC-AutoReader-Repo-1.0.0.zip
+unzip -t dist/SJRC-AutoReader-Repo-1.0.1.zip
+unzip -t dist/SJRC-AutoReader-Web.zip
+unzip -t dist/SJRC-AutoReader-Android.zip
+unzip -t dist/SJRC-AutoReader-Windows.zip
+python3 scripts/check_repo.py --archive dist/SJRC-AutoReader-Repo-1.0.1.zip
 ```
 
 ## Tag and release
 
 ```bash
-git tag -a v1.0.0 -m "SJRC AutoReader 1.0.0"
+git tag -a v1.0.1 -m "SJRC AutoReader 1.0.1"
 git push origin main
-git push origin v1.0.0
+git push origin v1.0.1
 ```
 
 Create a GitHub release from the tag:
 
-1. Title: `SJRC AutoReader 1.0.0`
+1. Title: `SJRC AutoReader 1.0.1`
 2. Notes: copy the `CHANGELOG.md` section, plus a short “what to verify” block.
-3. Attach the source zip and the three binaries.
-4. Attach `SHA256SUMS.release` with hashes of the attached files.
-5. Mark as “latest” only after CI is green.
+3. Attach the source zip, three platform bundles, and each `.zip.sha256` sidecar.
+4. Mark as “latest” only after CI is green.
 
 ## Release notes template
 

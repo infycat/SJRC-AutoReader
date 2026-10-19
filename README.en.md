@@ -6,15 +6,16 @@
 
 **A protocol-faithful reading-time client for 金閱閣校園版 (SJRC 2.9.0)**
 
-One behavioural contract, three independent builds, zero runtime dependencies.
+One behavioural contract, three independent builds. The web bundle includes a
+local launcher (requires Python 3); the clients themselves have no extra runtime dependencies.
 Endpoint and behavior documentation is based on the public 2.9.0 client
 reference; the full decompiled source tree is not redistributed here.
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.0.0-2ea44f?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.0.1-2ea44f?style=flat-square)
 ![Platforms](https://img.shields.io/badge/platforms-web%20%7C%20android%20%7C%20windows-43b7ff?style=flat-square)
-![Runtime deps](https://img.shields.io/badge/runtime%20deps-none-blue?style=flat-square)
+![Web launcher](https://img.shields.io/badge/web%20launcher-Python%203-blue?style=flat-square)
 ![Docs](https://img.shields.io/badge/docs-English%20%2B%20%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-2ee6a8?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-black?style=flat-square)
 
@@ -44,7 +45,9 @@ reference; the full decompiled source tree is not redistributed here.
 
 ## 📥 Download
 
-Each build is one file. No installer, no runtime, no auto-updater.
+Each platform is a complete ZIP bundle. Extract it before use. The web bundle
+includes the HTML, local server, and Windows `.bat` launcher; Android and Windows
+bundles include the app, instructions, licence, and checksums.
 
 <table>
 <tr>
@@ -52,47 +55,46 @@ Each build is one file. No installer, no runtime, no auto-updater.
 
 ### 🌐 Web
 
-[**Download `SJRC_AutoReader.html`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html)
+[**Download web bundle**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Web.zip)
 
-<sub>86,464 B · single file</sub>
-
-<sub>`d42615d827eeeb21…`</sub>
+<sub>HTML · `.bat` launcher · local server · guide · SHA256SUMS</sub>
 
 </td>
 <td align="center" width="33%">
 
 ### 📱 Android
 
-[**Download `SJRC-AutoRead.apk`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk)
+[**Download Android bundle**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Android.zip)
 
-<sub>53,784 B · minSdk 23</sub>
-
-<sub>`a8959831023403cc…`</sub>
+<sub>APK · install guide · licence · SHA256SUMS</sub>
 
 </td>
 <td align="center" width="33%">
 
 ### 💻 Windows
 
-[**Download `SJRC_AutoReader.exe`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe)
+[**Download Windows bundle**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Windows.zip)
 
-<sub>991,237 B · static x64</sub>
-
-<sub>`125d1ff535754b2c…`</sub>
+<sub>EXE · usage guide · licence · SHA256SUMS</sub>
 
 </td>
 </tr>
 </table>
 
-Verify every file against [`SHA256SUMS`](SHA256SUMS):
+Each ZIP has a `.zip.sha256` sidecar to verify the bundle. After extraction, the
+included `SHA256SUMS` verifies every file inside. On Windows, double-click
+`Start-SJRC-AutoReader.bat` to launch the web bundle.
+
+Verify a bundle (web shown here):
 
 ```bash
-sha256sum -c SHA256SUMS          # Linux
-shasum -a 256 -c SHA256SUMS      # macOS
+sha256sum -c SJRC-AutoReader-Web.zip.sha256  # Linux
+shasum -a 256 -c SJRC-AutoReader-Web.zip.sha256  # macOS
 ```
 
-The short hashes above are prefixes; the full SHA-256 values are in the
-`SHA256SUMS` asset on the [latest Release](https://github.com/infycat/SJRC-AutoReader/releases/latest).
+Windows: run `certutil -hashfile SJRC-AutoReader-Web.zip SHA256` and compare it
+with the value in the sidecar.
+
 If a download does not match, stop and do not run it. See
 [Installation](docs/en/installation.md#verify-the-download) for platform-specific
 instructions and uninstall steps.
@@ -104,9 +106,8 @@ instructions and uninstall steps.
 ### Web · audit-friendly
 
 ```bash
-cd web
-python3 -m http.server 8080
-# open http://localhost:8080/SJRC_AutoReader.html
+# After downloading and extracting the web bundle, double-click Start-SJRC-AutoReader.bat on Windows.
+# On macOS/Linux, run: python3 serve_web.py
 ```
 
 The page must be served over HTTP. `file://` has a `null` origin, which breaks

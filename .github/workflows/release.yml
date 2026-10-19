@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Existing tag to release (for example v1.0.0)"
+        description: "Existing tag to release (for example v1.0.1)"
         required: true
 
 permissions:
@@ -51,12 +51,8 @@ jobs:
             --version "$VERSION" \
             --output "dist/SJRC-AutoReader-Repo-${VERSION}.zip"
 
-      - name: Prepare product checksums
-        shell: bash
-        run: |
-          sha256sum web/SJRC_AutoReader.html phone/SJRC-AutoRead.apk pc/SJRC_AutoReader.exe \
-            | awk '{ name = $2; sub(".*/", "", name); print $1 "  " name }' \
-            > dist/SHA256SUMS
+      - name: Package platform bundles
+        run: python3 scripts/package_downloads.py --output-dir dist
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
@@ -67,9 +63,5 @@ jobs:
           files: |
             dist/*.zip
             dist/*.zip.sha256
-            dist/SHA256SUMS
-            web/SJRC_AutoReader.html
-            phone/SJRC-AutoRead.apk
-            pc/SJRC_AutoReader.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

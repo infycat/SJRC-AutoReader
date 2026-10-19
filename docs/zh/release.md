@@ -29,36 +29,43 @@
 ## 建立壓縮檔
 
 ```bash
-python3 scripts/package_release.py --version 1.0.0
+python3 scripts/package_release.py --version 1.0.1
+python3 scripts/package_downloads.py
 ```
 
-腳本建立 `dist/SJRC-AutoReader-Repo-1.0.0.zip`，包含：
+腳本建立來源壓縮檔與三個平台套件：
 
-- 已追蹤的儲存庫檔案，
-- 固定排序與時間戳，
-- 不含 `.git`、快取、`dist` 或產生的檢查檔。
+- `SJRC-AutoReader-Repo-1.0.1.zip`：完整儲存庫快照。
+- `SJRC-AutoReader-Web.zip`：HTML、本機 HTTP 伺服器、Windows `.bat` 啟動器、說明、授權與內部校驗碼。
+- `SJRC-AutoReader-Android.zip`：APK、安裝說明、授權與內部校驗碼。
+- `SJRC-AutoReader-Windows.zip`：EXE、使用說明、授權與內部校驗碼。
+- 每個 ZIP 旁都有同名 `.zip.sha256` sidecar。
+
+來源包維持固定排序與時間戳，不含 `.git`、快取、`dist` 或產生的檢查檔。
 
 驗證：
 
 ```bash
-unzip -t dist/SJRC-AutoReader-Repo-1.0.0.zip
-python3 scripts/check_repo.py --archive dist/SJRC-AutoReader-Repo-1.0.0.zip
+unzip -t dist/SJRC-AutoReader-Repo-1.0.1.zip
+unzip -t dist/SJRC-AutoReader-Web.zip
+unzip -t dist/SJRC-AutoReader-Android.zip
+unzip -t dist/SJRC-AutoReader-Windows.zip
+python3 scripts/check_repo.py --archive dist/SJRC-AutoReader-Repo-1.0.1.zip
 ```
 
 ## 標籤與發佈
 
 ```bash
-git tag -a v1.0.0 -m "SJRC AutoReader 1.0.0"
+git tag -a v1.0.1 -m "SJRC AutoReader 1.0.1"
 git push origin main
-git push origin v1.0.0
+git push origin v1.0.1
 ```
 
 從標籤建立 GitHub release：
 
-1. 標題：`SJRC AutoReader 1.0.0`
+1. 標題：`SJRC AutoReader 1.0.1`
 2. 說明：複製 `CHANGELOG.md` 的該節，加上簡短「驗證什麼」區塊。
-3. 附加原始碼 zip 與三個二進位檔。
-4. 附加 `SHA256SUMS.release`，含附加檔案的雜湊。
+3. 附加來源 zip、三個平台套件及各自的 `.zip.sha256` sidecar。
 5. CI 綠燈後才標為 latest。
 
 ## Release notes 模板

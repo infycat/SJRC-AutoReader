@@ -154,17 +154,17 @@ anyway”. If your organisation blocks unsigned binaries, use the web build.
 
 ### Do I need Node, Python, or a runtime installed?
 
-No for normal use. The web build is a single HTML file; the Android build is an
-APK; the Windows build is static. Python 3 is useful only for serving the web page
-over HTTP and for the repository checks. Node is needed only for the optional
+The web bundle's launcher needs Python 3 because Google sign-in requires a local
+HTTP origin; on Windows, double-click `Start-SJRC-AutoReader.bat`. The Android APK
+and Windows executable need no extra runtime. Node is needed only for the optional
 syntax check in CI.
 
 ### Why is the web page blank when I double-click it?
 
 The file is designed to be served over HTTP. `file://` has a `null` origin, which
-breaks Google Identity Services and can break `fetch`. Run
-`python3 -m http.server 8080` in `web/` and open
-`http://localhost:8080/SJRC_AutoReader.html`.
+breaks Google Identity Services and can break `fetch`. Extract the web bundle and
+double-click `Start-SJRC-AutoReader.bat` on Windows, or run `python3 serve_web.py`
+on macOS/Linux. Then open `http://localhost:8080/SJRC_AutoReader.html`.
 
 ### Can I rebuild the APK without the Android SDK?
 

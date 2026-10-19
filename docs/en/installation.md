@@ -2,8 +2,8 @@
 
 [中文](../zh/installation.md) · English
 
-Every build is a single file. There is no installer, no background service, no
-auto-update, and no runtime to install.
+Each platform download is a complete ZIP bundle. There is no installer,
+background service, or auto-updater. The web bundle's launcher requires Python 3.
 
 Download the current files from the [latest GitHub Release](https://github.com/infycat/SJRC-AutoReader/releases/latest).
 
@@ -11,9 +11,9 @@ Download the current files from the [latest GitHub Release](https://github.com/i
 
 | | Web | Android | Windows |
 |---|---|---|---|
-| File | [`SJRC_AutoReader.html`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html) | [`SJRC-AutoRead.apk`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk) | [`SJRC_AutoReader.exe`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe) |
-| Size | 86,464 B | 53,784 B | 991,237 B |
-| Install | none | sideload | none |
+| Download | [`SJRC-AutoReader-Web.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Web.zip) | [`SJRC-AutoReader-Android.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Android.zip) | [`SJRC-AutoReader-Windows.zip`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Windows.zip) |
+| Contents | HTML, Python server, Windows `.bat` launcher, guide | APK, guide, licence, checksums | EXE, guide, licence, checksums |
+| Install | extract, then run launcher | extract, then sideload APK | extract, then run EXE |
 | Google sign-in | ✅ (HTTP origin) | ❌ | ✅ via local helper |
 | Email + password | ❌ | ✅ | ❌ |
 | Paste access token | ❌ | ❌ | ✅ |
@@ -22,21 +22,21 @@ Download the current files from the [latest GitHub Release](https://github.com/i
 
 ## Verify the download
 
-Download `SHA256SUMS` from the [latest Release](https://github.com/infycat/SJRC-AutoReader/releases/latest),
-place it beside the downloaded files, and run one of:
+Download the platform ZIP and its matching `.zip.sha256` sidecar from the
+[latest Release](https://github.com/infycat/SJRC-AutoReader/releases/latest). Verify
+the ZIP first, extract it, then run the included `sha256sum -c SHA256SUMS` to
+verify its contents:
 
 ```bash
 # Linux / macOS
-sha256sum -c SHA256SUMS
-# macOS (no sha256sum)
-shasum -a 256 web/SJRC_AutoReader.html phone/SJRC-AutoRead.apk pc/SJRC_AutoReader.exe
+sha256sum -c SJRC-AutoReader-Web.zip.sha256
+shasum -a 256 -c SJRC-AutoReader-Web.zip.sha256  # macOS
+sha256sum -c SHA256SUMS  # run after extraction, inside the bundle folder
 ```
 
 ```bat
-:: Windows
-certutil -hashfile web\SJRC_AutoReader.html SHA256
-certutil -hashfile phone\SJRC-AutoRead.apk SHA256
-certutil -hashfile pc\SJRC_AutoReader.exe SHA256
+:: Windows: compare this output with the hash in the matching .zip.sha256 file
+certutil -hashfile SJRC-AutoReader-Web.zip SHA256
 ```
 
 Expected values are also in `data/source-stats.json`. A mismatch means the file
@@ -47,7 +47,10 @@ was modified or corrupted; do not run it.
 ### Serve over HTTP
 
 The page must have an `http://` origin for Google Identity Services. Do not open
-it with `file://`.
+it with `file://`. In the downloaded Web ZIP, double-click
+`Start-SJRC-AutoReader.bat`; this starts the included local server and opens the
+page. Python 3 must be installed. On macOS/Linux, run `python3 serve_web.py` in
+the extracted folder.
 
 ```bash
 cd web
@@ -83,7 +86,7 @@ issued. Email sign-in does not need this.
 
 ## Android
 
-1. Copy `phone/SJRC-AutoRead.apk` to the device (USB, cloud drive, or `adb`).
+1. Extract the Android ZIP, then copy `SJRC-AutoRead.apk` to the device (USB, cloud drive, or `adb`).
 2. Open it with the file manager.
 3. Allow **Install unknown apps** for that file manager when prompted.
 4. Install and open **SJRC AutoRead**.
@@ -110,7 +113,7 @@ storage, including any saved token.
 
 ## Windows
 
-1. Put `pc/SJRC_AutoReader.exe` in a folder you control.
+1. Extract the Windows ZIP to a folder you control.
 2. Double-click it. SmartScreen may warn because the binary is not code-signed;
    choose **More info → Run anyway** only if the SHA-256 matches.
 3. Sign in with the local helper or paste a token.

@@ -4,7 +4,7 @@
 
 ## What this is
 
-SJRC AutoReader is a small, dependency-free client for the reading-time portion
+SJRC AutoReader is a small client with no third-party runtime dependencies for the reading-time portion
 of the SJRC (金閱閣校園版) API. It reproduces the official app's heartbeat and page
 turns so a reading session keeps accumulating time until a target you choose.
 
@@ -19,7 +19,7 @@ content. It has no server and no telemetry.
 
 | Build | Requirements |
 |---|---|
-| Web | A modern browser (Chrome, Edge, Firefox, Safari). A local HTTP server for Google sign-in. |
+| Web | A modern browser (Chrome, Edge, Firefox, Safari). The bundle launcher requires Python 3 to start the local HTTP server needed for Google sign-in. |
 | Android | Android 6.0+ (API 23+). “Install unknown apps” permission. |
 | Windows | Windows 10/11 x64. No runtime, no installer. |
 
@@ -30,11 +30,10 @@ temporary local Google helper or a pasted access token.
 
 ## Five-minute first run (web)
 
-```bash
-cd web
-python3 -m http.server 8080
-# open http://localhost:8080/SJRC_AutoReader.html
-```
+Download the [Web bundle](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Web.zip)
+and extract it. On Windows, double-click `Start-SJRC-AutoReader.bat`; Python 3
+must be installed. On macOS/Linux, run `python3 serve_web.py` in the extracted
+folder. The page opens at `http://localhost:8080/SJRC_AutoReader.html`.
 
 1. Sign in with Google. The web build does not have an email/password form.
 2. Leave **Target hours** at `2` for a first run.
@@ -47,7 +46,7 @@ before it marks the session closed.
 
 ## Five-minute first run (Android)
 
-1. Copy `phone/SJRC-AutoRead.apk` to the device.
+1. Download and extract the [Android bundle](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Android.zip), then copy `SJRC-AutoRead.apk` to the device.
 2. Allow installation from unknown sources for the file manager.
 3. Install, open, and sign in with email + password.
 4. Set the target and press start. Keep the app in the foreground; Android may
@@ -58,7 +57,7 @@ APK has them. See [troubleshooting.md](troubleshooting.md).
 
 ## Five-minute first run (Windows)
 
-1. Run `pc/SJRC_AutoReader.exe`.
+1. Download and extract the [Windows bundle](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoReader-Windows.zip), then run `SJRC_AutoReader.exe`.
 2. Use **Local sign-in page** for Google, or paste an access token.
 3. Set the target in hours, heartbeat in seconds, turn interval in seconds.
 4. Press **Start**. Closing the window stops the worker and ends the session.

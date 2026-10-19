@@ -32,7 +32,7 @@
   <text x="142" y="88" fill="#152f36" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="46" font-weight="700" letter-spacing="-1">SJRC AutoReader</text>
   <text x="144" y="122" fill="#138465" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="18" font-weight="500" letter-spacing="0.3">金閱閣校園版 · 閱讀心跳 · 協議研究</text>
   <path d="M56 166h186l24-26 24 54 22-36 18 22h34" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="56" y="222" fill="#385960" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="17">一套協議 · 三種客戶端 · 零執行期依賴</text>
+  <text x="56" y="222" fill="#385960" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="17">一套協議 · 三種客戶端 · 網頁啟動需 Python 3</text>
   <text x="56" y="254" fill="#4e6d75" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="15">MIT 授權 · 社群研究專案 · 與 SJRC 無關</text>
   <g font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif">
     <g transform="translate(760 72)">

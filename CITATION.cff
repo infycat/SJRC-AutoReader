@@ -5,13 +5,13 @@ abstract: >-
   A small interoperability study and client collection for the SJRC reading
   service. It maintains the documented reading heartbeat, reports reading
   positions, and stops at a configurable target. The repository includes a
-  single-file web app, an Android WebView wrapper, a native Windows client, and
+  single-file web app with a local HTTP launcher, an Android WebView wrapper, a native Windows client, and
   bilingual protocol documentation derived from the public API and decompiled
   client excerpts.
 authors:
   - name: "SJRC AutoReader contributors"
-version: "1.0.0"
-date-released: "2026-10-19"
+version: "1.0.1"
+date-released: "2026-10-20"
 license: MIT
 keywords:
   - sjrc

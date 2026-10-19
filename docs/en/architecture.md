@@ -187,7 +187,7 @@ credentials ──► accessToken ──► GET reading-time (baseline)
 | Decision | Why | Trade-off |
 |---|---|---|
 | No build step for web | Auditable, portable, no supply chain | Large single file, no modules |
-| No runtime deps | Works offline, small binaries, no package manager | Hand-written JSON/HTTP/UI code |
+| No third-party client libraries | Small apps without a package manager | Web download launcher uses Python 3 to provide the required local HTTP origin |
 | Three independent clients | Each platform uses its natural primitives | Behaviour can drift; contract table and tests mitigate |
 | Tokens in local storage / registry | Simple, no extra key management | Anyone with device/profile access can read them |
 | No certificate pinning | Avoid breaking on upstream certificate rotation | Weaker against a local MITM; relies on TLS verification |
