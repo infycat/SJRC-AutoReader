@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/banner.svg" alt="SJRC AutoReader —— 網頁、Android 與 Windows 客戶端" width="100%">
+<img src="docs/assets/banner.zh.svg" alt="SJRC AutoReader —— 網頁、Android 與 Windows 客戶端" width="100%">
 
 # SJRC AutoReader
 
@@ -175,7 +175,7 @@ token。設定與 token 存在 `HKCU\Software\SJRC\AutoReader`。見
 三個客戶端沒有共用程式碼，但實作同一套觀察到的契約。完整流程見
 [架構](docs/zh/architecture.md#session-狀態機) 與 [API 參考](docs/zh/api.md)。
 
-<img src="docs/assets/heartbeat-flow.svg" alt="閱讀 session 時序：start、每 3 秒心跳、每 20 秒翻頁、額度檢查與 end" width="100%">
+<img src="docs/assets/heartbeat-flow.zh.svg" alt="閱讀 session 時序：開始、每 3 秒心跳、每 20 秒翻頁、額度檢查與結束" width="100%">
 
 ```text
 登入 ──► accessToken（+ refreshToken）

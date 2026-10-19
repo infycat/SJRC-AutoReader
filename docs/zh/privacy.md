@@ -7,7 +7,7 @@
 本專案沒有後端、沒有遙測、沒有分析。它在你的裝置本機處理 SJRC 帳號資料，只把
 維持閱讀 session 所需的請求送到 `api.sjrc.club`。Google 登入另會連線 Google。
 
-![資料流與信任邊界](../assets/data-flow.svg)
+![資料流與信任邊界](../assets/data-flow.zh.svg)
 
 ## 資料清單
 

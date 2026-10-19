@@ -2,7 +2,7 @@
 
 **繁體中文** · [English](../en/architecture.md)
 
-![架構圖](../assets/architecture.svg)
+![架構圖](../assets/architecture.zh.svg)
 
 ## 系統脈絡
 
@@ -111,7 +111,7 @@ WinHTTP 設 `followRedirects=false`，避免重新導向把 Bearer token 帶到�
 
 ## Session 狀態機
 
-![心跳流程](../assets/heartbeat-flow.svg)
+![心跳流程](../assets/heartbeat-flow.zh.svg)
 
 ```text
 IDLE
@@ -151,7 +151,7 @@ isRemainTimeLessThan20() = (totalQuota - usedQuota) <= totalQuota * 0.2f
 
 ## 資料流
 
-![資料流](../assets/data-flow.svg)
+![資料流](../assets/data-flow.zh.svg)
 
 ```text
 憑證 ──► accessToken ──► GET reading-time（基準）

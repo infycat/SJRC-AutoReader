@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">SJRC AutoReader — 網頁、Android 與 Windows 客戶端</title>
+  <desc id="desc">深色專案橫幅，包含閱讀心跳示意與三種支援版本。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a1f"/>
+      <stop offset="0.55" stop-color="#0b2930"/>
+      <stop offset="1" stop-color="#04202a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2ee6a8"/>
+      <stop offset="1" stop-color="#43b7ff"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#2ee6a8" stroke-opacity="0.06"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="320" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="320" rx="24" fill="url(#grid)"/>
+  <circle cx="1130" cy="54" r="180" fill="#2ee6a8" opacity="0.04"/>
+  <circle cx="1210" cy="290" r="150" fill="#43b7ff" opacity="0.05"/>
+  <g transform="translate(56 52)">
+    <rect width="64" height="64" rx="16" fill="#0d3a44" stroke="#2ee6a8" stroke-opacity="0.45"/>
+    <path d="M15 20c7-3 13-1 17 3v25c-4-4-10-6-17-3z" fill="none" stroke="#8df5d0" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M49 20c-7-3-13-1-17 3v25c4-4 10-6 17-3z" fill="none" stroke="#8df5d0" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M21 34h7l4-8 5 15 4-7h7" fill="none" stroke="#43b7ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  </g>
+  <text x="142" y="88" fill="#f2fffb" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="46" font-weight="700" letter-spacing="-1">SJRC AutoReader</text>
+  <text x="144" y="122" fill="#8df5d0" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="18" font-weight="500" letter-spacing="0.3">金閱閣校園版 · 閱讀心跳 · 協議研究</text>
+  <path d="M56 166h186l24-26 24 54 22-36 18 22h34" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="56" y="222" fill="#a8c7cd" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="17">一套協議 · 三種客戶端 · 零執行期依賴</text>
+  <text x="56" y="254" fill="#5f8790" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif" font-size="15">MIT 授權 · 社群研究專案 · 與 SJRC 無關</text>
+  <g font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif">
+    <g transform="translate(760 72)">
+      <rect width="140" height="72" rx="14" fill="#0b2b33" stroke="#2ee6a8" stroke-opacity="0.28"/>
+      <text x="20" y="31" fill="#e9fffa" font-size="17" font-weight="650">網頁</text>
+      <text x="20" y="54" fill="#79a7ae" font-size="12">單一 .html 檔</text>
+      <circle cx="116" cy="24" r="5" fill="#2ee6a8"/>
+    </g>
+    <g transform="translate(916 72)">
+      <rect width="140" height="72" rx="14" fill="#0b2b33" stroke="#43b7ff" stroke-opacity="0.28"/>
+      <text x="20" y="31" fill="#e9fffa" font-size="17" font-weight="650">Android</text>
+      <text x="20" y="54" fill="#79a7ae" font-size="12">WebView 外殼</text>
+      <circle cx="116" cy="24" r="5" fill="#43b7ff"/>
+    </g>
+    <g transform="translate(1072 72)">
+      <rect width="140" height="72" rx="14" fill="#0b2b33" stroke="#8df5d0" stroke-opacity="0.24"/>
+      <text x="20" y="31" fill="#e9fffa" font-size="17" font-weight="650">Windows</text>
+      <text x="20" y="54" fill="#79a7ae" font-size="12">原生 Win32</text>
+      <circle cx="116" cy="24" r="5" fill="#8df5d0"/>
+    </g>
+    <g transform="translate(760 172)">
+      <rect width="452" height="72" rx="14" fill="#061b21" stroke="#1d4b56"/>
+      <text x="20" y="30" fill="#9fc4ca" font-size="13" font-weight="600">參考原始碼</text>
+      <text x="20" y="53" fill="#d8f5ef" font-size="14">4,888 個 smali 類別 · 98 個 Retrofit 方法 · 雙語文件</text>
+    </g>
+  </g>
+</svg>

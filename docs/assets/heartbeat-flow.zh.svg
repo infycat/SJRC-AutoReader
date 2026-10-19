@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">閱讀 session 與心跳流程</title>
+  <desc id="desc">客戶端、SJRC API 與介面之間的開始、重複心跳、翻頁、額度檢查和結束流程。</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#43b7ff"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#2ee6a8"/></marker>
+    <style>
+      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#e9fffa}
+      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#8fb7be;font-size:12.5px}
+      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#b7d9de;font-size:12.5px}
+      .h{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
+      .life{stroke:#245360;stroke-width:2;stroke-dasharray:5 5}
+    </style>
+  </defs>
+  <rect width="1200" height="820" fill="#081b21"/>
+  <text x="48" y="52" class="t" font-size="26" font-weight="700">閱讀 session — 實際流程</text>
+  <text x="48" y="78" class="s">時間間隔與欄位名稱依據官方 2.9.0 客戶端及本專案的實測結果。</text>
+  <g>
+    <rect x="48" y="110" width="200" height="54" rx="10" fill="#0d3540" stroke="#2ee6a8"/>
+    <text x="148" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">介面／計時器</text>
+    <text x="148" y="152" text-anchor="middle" class="s">目標時數</text>
+    <rect x="400" y="110" width="200" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="500" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">客戶端</text>
+    <text x="500" y="152" text-anchor="middle" class="s">網頁 · Android · Windows</text>
+    <rect x="752" y="110" width="200" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="852" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">SJRC API</text>
+    <text x="852" y="152" text-anchor="middle" class="s">api.sjrc.club</text>
+    <rect x="1042" y="110" width="110" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="1097" y="141" text-anchor="middle" class="t" font-size="14" font-weight="650">帳號</text>
+  </g>
+  <line x1="148" y1="164" x2="148" y2="736" class="life"/>
+  <line x1="500" y1="164" x2="500" y2="736" class="life"/>
+  <line x1="852" y1="164" x2="852" y2="736" class="life"/>
+  <line x1="1097" y1="164" x2="1097" y2="736" class="life"/>
+  <g>
+    <text x="60" y="206" class="h">每次執行一次</text>
+    <path d="M148 218H500" stroke="#2ee6a8" stroke-width="1.7" marker-end="url(#g)"/>
+    <text x="164" y="212" class="m">以目標時數與間隔開始</text>
+    <path d="M500 246H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="240" class="m">POST /v1/client/reading-time/start  {bookId}</text>
+    <path d="M852 274H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="268" class="m">{ code: 200, data: { sessionId } }  → 儲存 sessionId</text>
+    <text x="60" y="316" class="h">每 3 秒</text>
+    <path d="M148 330H500" stroke="#2ee6a8" stroke-width="1.7" marker-end="url(#g)"/>
+    <text x="164" y="324" class="m">每秒 tick()；到時便送出心跳</text>
+    <path d="M500 358H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="352" class="m">PATCH /v1/client/reading-time  {sessionId, time: 3}</text>
+    <text x="516" y="371" class="s">time 的單位為秒；3 約等於一次 3 秒間隔</text>
+    <path d="M852 392H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="386" class="m">閱讀時數快照 → usedQuota、totalQuota</text>
+    <path d="M500 420H148" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="164" y="414" class="m">更新進度並檢查停止條件</text>
+    <text x="60" y="462" class="h">每 20 秒</text>
+    <path d="M500 476H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="470" class="m">POST /v1/client/reading-pos  {bookId, pos}</text>
+    <path d="M852 504H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="498" class="m">位置已接受；前往下一頁或下一本書</text>
+    <text x="60" y="550" class="h">停止條件</text>
+    <rect x="148" y="562" width="704" height="74" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="166" y="587" class="m">已用時數達標 · 代碼 80008 額度用盡 · 剩餘額度 ≤ 20% (-777777)</text>
+    <text x="166" y="610" class="m">token 更新失敗 · 心跳連續 4 次錯誤 (-1001) · 使用者按下停止</text>
+    <text x="60" y="674" class="h">結束</text>
+    <path d="M500 688H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="682" class="m">PATCH /v1/client/reading-time/end  {sessionId}</text>
+    <text x="516" y="701" class="s">官方客戶端在此傳送 bookId；伺服器 DTO 預期的是 sessionId (80009)。</text>
+    <path d="M852 726H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="720" class="m">session 已關閉；釋放計時器並更新介面狀態</text>
+  </g>
+  <text x="48" y="782" class="s">客戶端不會下載或解密書籍內容，只回報閱讀時間與頁面位置。</text>
+</svg>

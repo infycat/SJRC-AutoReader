@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">資料流與隱私界線</title>
+  <desc id="desc">帳號憑證與 token 留在本機，協議請求直接送往 SJRC API，本專案不設後端。</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#43b7ff"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#2ee6a8"/></marker>
+    <style>
+      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#e9fffa}
+      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#8fb7be;font-size:12.5px}
+      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#b7d9de;font-size:12.5px}
+      .h{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
+      .box{fill:#0b2b33;stroke:#245360;stroke-width:1.5}
+      .ok{fill:#0b312b;stroke:#2ee6a8;stroke-width:1.6}
+      .no{fill:#2c1719;stroke:#e0605e;stroke-width:1.4;stroke-dasharray:6 4}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#081b21"/>
+  <text x="48" y="52" class="t" font-size="26" font-weight="700">資料流與信任界線</text>
+  <text x="48" y="78" class="s">客戶端掌握的資料，以及資料可能送往的位置。</text>
+  <rect x="48" y="110" width="330" height="470" rx="16" fill="#071d23" stroke="#2ee6a8" stroke-opacity="0.45"/>
+  <text x="70" y="140" class="h">你的裝置</text>
+  <rect x="70" y="160" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="185" class="t" font-size="15" font-weight="650">帳號憑證</text>
+  <text x="86" y="208" class="m">密碼或 Google ID token</text>
+  <text x="86" y="227" class="s">僅使用一次，不會持久儲存</text>
+  <rect x="70" y="258" width="286" height="98" rx="10" class="ok"/>
+  <text x="86" y="283" class="t" font-size="15" font-weight="650">存取權杖（token）</text>
+  <text x="86" y="306" class="m">localStorage · WebView · HKCU</text>
+  <text x="86" y="325" class="m">access、refresh 與 session ID</text>
+  <text x="86" y="344" class="s">登出、結束或到期時清除</text>
+  <rect x="70" y="372" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="397" class="t" font-size="15" font-weight="650">偏好設定</text>
+  <text x="86" y="420" class="m">目標時數 · 心跳 · 翻頁間隔</text>
+  <text x="86" y="439" class="s">僅存於本機，不建立使用者檔案</text>
+  <rect x="70" y="470" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="495" class="t" font-size="15" font-weight="650">日誌面板</text>
+  <text x="86" y="518" class="m">請求路徑、代碼與訊息</text>
+  <text x="86" y="537" class="s">只留在記憶體，不會上傳</text>
+  <rect x="438" y="180" width="280" height="300" rx="16" fill="#0b2b33" stroke="#43b7ff" stroke-width="2"/>
+  <text x="460" y="210" class="h">專案程式</text>
+  <text x="460" y="242" class="t" font-size="17" font-weight="650">三種客戶端</text>
+  <text x="460" y="268" class="m">網頁 · Android WebView · Win32</text>
+  <text x="460" y="296" class="s">沒有伺服器元件</text>
+  <text x="460" y="316" class="s">沒有分析 SDK</text>
+  <text x="460" y="336" class="s">沒有當機回報器</text>
+  <text x="460" y="356" class="s">沒有代理或中繼服務</text>
+  <text x="460" y="390" class="t" font-size="14" font-weight="600">僅直接使用 HTTPS</text>
+  <text x="460" y="414" class="m">逾時 60 秒 · 不跟隨重新導向</text>
+  <text x="460" y="436" class="m">未固定憑證</text>
+  <rect x="778" y="180" width="374" height="300" rx="16" fill="#082027" stroke="#2ee6a8"/>
+  <text x="800" y="210" class="h">第三方服務</text>
+  <text x="800" y="242" class="t" font-size="17" font-weight="650">api.sjrc.club</text>
+  <text x="800" y="268" class="m">帳號 · 額度 · 書架</text>
+  <text x="800" y="292" class="m">閱讀 session 與頁面位置</text>
+  <text x="800" y="316" class="m">Token 更新</text>
+  <text x="800" y="348" class="s">接收：token、bookId、sessionId、</text>
+  <text x="800" y="368" class="s">以秒計的時間與頁面位置。</text>
+  <text x="800" y="396" class="s">依服務自身政策保留資料。</text>
+  <text x="800" y="426" class="s">本專案無法檢視或刪除這些資料。</text>
+  <rect x="438" y="520" width="714" height="62" rx="12" class="no"/>
+  <text x="460" y="546" class="t" font-size="14" font-weight="650">本專案不包含</text>
+  <text x="460" y="568" class="s">後端 · 遙測 · 書籍內容 · DRM 金鑰 · 提供給本專案的帳號憑證</text>
+  <g stroke-width="2" fill="none">
+    <path d="M356 205H438" stroke="#2ee6a8" marker-end="url(#g)"/>
+    <path d="M356 307H438" stroke="#2ee6a8" marker-end="url(#g)"/>
+    <path d="M718 300H778" stroke="#43b7ff" marker-end="url(#a)"/>
+  </g>
+  <text x="362" y="196" class="s">登入</text>
+  <text x="362" y="298" class="s">授權</text>
+  <text x="724" y="291" class="s">HTTPS</text>
+  <text x="48" y="634" class="s">各版本的本機儲存方式不同，但隱私特性相同。資料清單與保留方式請見 docs/zh/privacy.md。</text>
+</svg>
