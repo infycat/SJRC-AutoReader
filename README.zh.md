@@ -17,7 +17,7 @@
 ![文件](https://img.shields.io/badge/文件-English%20%2B%20%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-2ee6a8?style=flat-square)
 ![授權](https://img.shields.io/badge/授權-MIT-black?style=flat-square)
 
-[English](README.md) · **繁體中文**
+[English](README.en.md) · **繁體中文**
 
 [下載](#-下載) · [運作方式](#-運作方式) · [文件](#-文件) · [建置](#-從源碼建置) · [常見問題](#-常見問題) · [貢獻](#-貢獻)
 

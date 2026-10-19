@@ -17,7 +17,7 @@
 
 - [ ] 在乾淨 checkout 執行 `make check` 通過。
 - [ ] `CHANGELOG.md` 在新版本下有條目與日期。
-- [ ] `README.md` 與 `README.zh.md` 的功能與連結一致。
+- [ ] `README.en.md` 與 `README.zh.md` 的功能與連結一致。
 - [ ] `docs/en` 與 `docs/zh` 頁面集與標題一致。
 - [ ] `SHA256SUMS` 與提交的二進位檔相符。
 - [ ] `data/source-stats.json` 與大小、雜湊相符。

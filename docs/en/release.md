@@ -17,7 +17,7 @@ version. Both numbers appear in the docs; do not confuse them.
 
 - [ ] `make check` passes on a clean checkout.
 - [ ] `CHANGELOG.md` has an entry under the new version, with the date.
-- [ ] `README.md` and `README.zh.md` agree on features and links.
+- [ ] `README.en.md` and `README.zh.md` agree on features and links.
 - [ ] `docs/en` and `docs/zh` have the same page set and headings.
 - [ ] `SHA256SUMS` matches the committed binaries.
 - [ ] `data/source-stats.json` matches sizes and hashes.

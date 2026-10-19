@@ -1,3 +1,15 @@
+# 文件索引
+
+本儲存庫預設使用繁體中文。請從以下常用頁面開始；完整文件清單與英文版本也列於下方。
+
+- [快速開始](zh/getting-started.md) · [安裝](zh/installation.md) · [設定](zh/configuration.md) · [使用](zh/usage.md)
+- [架構](zh/architecture.md) · [API 參考](zh/api.md) · [程式碼地圖](zh/code-map.md) · [逆向工程](zh/reverse-engineering.md)
+- [建置](zh/building.md) · [測試](zh/testing.md) · [發佈流程](zh/release.md)
+- [安全](zh/security.md) · [隱私](zh/privacy.md) · [法律](zh/legal.md)
+- [疑難排解](zh/troubleshooting.md) · [常見問題](zh/faq.md) · [術語表](zh/glossary.md)
+
+---
+
 # Documentation
 
 **English** · [繁體中文](#文件)

@@ -58,7 +58,8 @@ SJRC-AutoReader-Repo/
 ├── docs/{en,zh}/                 17 篇雙語文件
 ├── scripts/                      檢查、打包、本機伺服器
 ├── .github/                      CI、issue 表單、PR 模板
-├── README.md / README.zh.md      入口
+├── README.md / README.zh.md      繁體中文入口
+├── README.en.md                  英文版完整說明
 ├── CONTRIBUTING.md / SECURITY.md / SUPPORT.md / GOVERNANCE.md
 ├── CHANGELOG.md / ROADMAP.md / AUTHORS.md / NOTICE.md / CITATION.cff
 └── LICENSE                       MIT（僅涵蓋原創部分）
