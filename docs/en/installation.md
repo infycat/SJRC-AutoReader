@@ -5,11 +5,13 @@
 Every build is a single file. There is no installer, no background service, no
 auto-update, and no runtime to install.
 
+Download the current files from the [latest GitHub Release](https://github.com/infycat/SJRC-AutoReader/releases/latest).
+
 ## Choose a build
 
 | | Web | Android | Windows |
 |---|---|---|---|
-| File | `web/SJRC_AutoReader.html` | `phone/SJRC-AutoRead.apk` | `pc/SJRC_AutoReader.exe` |
+| File | [`SJRC_AutoReader.html`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html) | [`SJRC-AutoRead.apk`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk) | [`SJRC_AutoReader.exe`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe) |
 | Size | 86,464 B | 53,784 B | 991,237 B |
 | Install | none | sideload | none |
 | Google sign-in | ✅ (HTTP origin) | ❌ | ✅ via local helper |
@@ -20,7 +22,8 @@ auto-update, and no runtime to install.
 
 ## Verify the download
 
-`SHA256SUMS` contains the expected hashes. Run one of:
+Download `SHA256SUMS` from the [latest Release](https://github.com/infycat/SJRC-AutoReader/releases/latest),
+place it beside the downloaded files, and run one of:
 
 ```bash
 # Linux / macOS

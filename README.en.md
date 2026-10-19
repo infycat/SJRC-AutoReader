@@ -52,7 +52,7 @@ Each build is one file. No installer, no runtime, no auto-updater.
 
 ### 🌐 Web
 
-[**Download `SJRC_AutoReader.html`**](web/SJRC_AutoReader.html?raw=1)
+[**Download `SJRC_AutoReader.html`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html)
 
 <sub>86,464 B · single file</sub>
 
@@ -63,7 +63,7 @@ Each build is one file. No installer, no runtime, no auto-updater.
 
 ### 📱 Android
 
-[**Download `SJRC-AutoRead.apk`**](phone/SJRC-AutoRead.apk?raw=1)
+[**Download `SJRC-AutoRead.apk`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk)
 
 <sub>53,784 B · minSdk 23</sub>
 
@@ -74,7 +74,7 @@ Each build is one file. No installer, no runtime, no auto-updater.
 
 ### 💻 Windows
 
-[**Download `SJRC_AutoReader.exe`**](pc/SJRC_AutoReader.exe?raw=1)
+[**Download `SJRC_AutoReader.exe`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe)
 
 <sub>991,237 B · static x64</sub>
 
@@ -91,8 +91,9 @@ sha256sum -c SHA256SUMS          # Linux
 shasum -a 256 -c SHA256SUMS      # macOS
 ```
 
-The short hashes above are prefixes; the file contains the full SHA-256. If a
-download does not match, stop and re-download from this repository. See
+The short hashes above are prefixes; the full SHA-256 values are in the
+`SHA256SUMS` asset on the [latest Release](https://github.com/infycat/SJRC-AutoReader/releases/latest).
+If a download does not match, stop and do not run it. See
 [Installation](docs/en/installation.md#verify-the-download) for platform-specific
 instructions and uninstall steps.
 

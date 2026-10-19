@@ -51,6 +51,13 @@ jobs:
             --version "$VERSION" \
             --output "dist/SJRC-AutoReader-Repo-${VERSION}.zip"
 
+      - name: Prepare product checksums
+        shell: bash
+        run: |
+          sha256sum web/SJRC_AutoReader.html phone/SJRC-AutoRead.apk pc/SJRC_AutoReader.exe \
+            | awk '{ name = $2; sub(".*/", "", name); print $1 "  " name }' \
+            > dist/SHA256SUMS
+
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
@@ -60,5 +67,9 @@ jobs:
           files: |
             dist/*.zip
             dist/*.zip.sha256
+            dist/SHA256SUMS
+            web/SJRC_AutoReader.html
+            phone/SJRC-AutoRead.apk
+            pc/SJRC_AutoReader.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,12 +3,13 @@
 **繁體中文** · [English](../en/installation.md)
 
 每個成品都是單一檔案。沒有安裝器、沒有背景服務、沒有自動更新、沒有執行期要裝。
+最新版本請從 [GitHub Releases](https://github.com/infycat/SJRC-AutoReader/releases/latest) 下載。
 
 ## 選擇成品
 
 | | 網頁 | Android | Windows |
 |---|---|---|---|
-| 檔案 | `web/SJRC_AutoReader.html` | `phone/SJRC-AutoRead.apk` | `pc/SJRC_AutoReader.exe` |
+| 檔案 | [`SJRC_AutoReader.html`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html) | [`SJRC-AutoRead.apk`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk) | [`SJRC_AutoReader.exe`](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe) |
 | 大小 | 86,464 B | 53,784 B | 991,237 B |
 | 安裝 | 無 | 側載 | 無 |
 | Google 登入 | ✅（需 HTTP origin） | ❌ | ✅ 經本機登入頁 |
@@ -19,7 +20,8 @@
 
 ## 驗證下載
 
-`SHA256SUMS` 有預期雜湊。執行其中一種：
+從[最新 Release](https://github.com/infycat/SJRC-AutoReader/releases/latest) 下載 `SHA256SUMS`，
+與成品放在相同目錄，再執行其中一種：
 
 ```bash
 # Linux / macOS

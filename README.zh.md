@@ -47,7 +47,7 @@
 
 ### 🌐 網頁
 
-[**下載 `SJRC_AutoReader.html`**](web/SJRC_AutoReader.html?raw=1)
+[**下載 `SJRC_AutoReader.html`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.html)
 
 <sub>86,464 B · 單一檔案</sub>
 
@@ -58,7 +58,7 @@
 
 ### 📱 手機
 
-[**下載 `SJRC-AutoRead.apk`**](phone/SJRC-AutoRead.apk?raw=1)
+[**下載 `SJRC-AutoRead.apk`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC-AutoRead.apk)
 
 <sub>53,784 B · minSdk 23</sub>
 
@@ -69,7 +69,7 @@
 
 ### 💻 電腦
 
-[**下載 `SJRC_AutoReader.exe`**](pc/SJRC_AutoReader.exe?raw=1)
+[**下載 `SJRC_AutoReader.exe`**](https://github.com/infycat/SJRC-AutoReader/releases/latest/download/SJRC_AutoReader.exe)
 
 <sub>991,237 B · 靜態 x64</sub>
 
@@ -86,8 +86,9 @@ sha256sum -c SHA256SUMS          # Linux
 shasum -a 256 -c SHA256SUMS      # macOS
 ```
 
-上面的短雜湊只是前綴，檔案裡是完整 SHA-256。若下載不符，請停止並從本儲存庫
-重新下載。各平台的安裝與卸載步驟見[安裝](docs/zh/installation.md#驗證下載)。
+上面的短雜湊只是前綴，完整 SHA-256 可在[最新 Releases](https://github.com/infycat/SJRC-AutoReader/releases/latest)
+下載的 `SHA256SUMS` 中驗證。若雜湊不符，請停止並不要執行。各平台的安裝與卸載
+步驟見[安裝](docs/zh/installation.md#驗證下載)。
 
 ---
 
