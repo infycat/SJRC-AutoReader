@@ -2,22 +2,22 @@
   <title id="title">SJRC AutoReader 架構</title>
   <desc id="desc">三種獨立客戶端共用同一套協議契約，並直接連線至 SJRC HTTP API。儲存庫也包含 smali 參考原始碼。</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#081b21"/><stop offset="1" stop-color="#061318"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7fafb"/><stop offset="1" stop-color="#edf4f5"/></linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2ee6a8"/><stop offset="1" stop-color="#43b7ff"/></linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#5f8790"/></marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#4e6d75"/></marker>
     <style>
-      .box{fill:#0b2b33;stroke:#245360;stroke-width:1.5}
-      .boxhi{fill:#0d3540;stroke:#2ee6a8;stroke-width:2}
-      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#e9fffa}
-      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#8fb7be}
-      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#b7d9de}
-      .lbl{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
+      .box{fill:#f2f7f8;stroke:#b8cdd2;stroke-width:1.5}
+      .boxhi{fill:#e8f5f1;stroke:#2ee6a8;stroke-width:2}
+      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#18343b}
+      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#4d6a72}
+      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#344f56}
+      .lbl{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#4e6d75;font-size:11px;letter-spacing:1px}
     </style>
   </defs>
   <rect width="1200" height="760" fill="url(#bg)"/>
   <text x="48" y="56" class="t" font-size="28" font-weight="700">系統概觀</text>
   <text x="48" y="82" class="s" font-size="14">三種獨立版本，不共用執行環境；協議就是共同契約。</text>
-  <rect x="48" y="108" width="1104" height="228" rx="18" fill="#06171c" stroke="#173b44"/>
+  <rect x="48" y="108" width="1104" height="228" rx="18" fill="#eaf2f3" stroke="#c9dde1"/>
   <text x="70" y="136" class="lbl">客戶端</text>
   <g>
     <rect x="70" y="154" width="330" height="156" rx="14" class="boxhi"/>
@@ -39,39 +39,39 @@
     <text x="806" y="254" class="m" font-size="12.5">匯入 token 或使用本機 OAuth 輔助程式</text>
     <text x="806" y="277" class="s" font-size="12">HKCU\Software\SJRC\AutoReader</text>
   </g>
-  <rect x="48" y="364" width="1104" height="146" rx="18" fill="#071d23" stroke="#245360"/>
+  <rect x="48" y="364" width="1104" height="146" rx="18" fill="#f1f6f7" stroke="#b8cdd2"/>
   <text x="70" y="392" class="lbl">共同行為契約</text>
   <g class="m" font-size="12.5">
-    <rect x="70" y="408" width="240" height="78" rx="10" fill="#0b2b33" stroke="#1d4b56"/>
+    <rect x="70" y="408" width="240" height="78" rx="10" fill="#f2f7f8" stroke="#b7cdd2"/>
     <text x="86" y="432" class="t" font-size="14" font-weight="600">Session 生命週期</text>
     <text x="86" y="453">開始 → 心跳 → 結束</text>
     <text x="86" y="472">達標、額度用盡或失敗時停止</text>
-    <rect x="326" y="408" width="240" height="78" rx="10" fill="#0b2b33" stroke="#1d4b56"/>
+    <rect x="326" y="408" width="240" height="78" rx="10" fill="#f2f7f8" stroke="#b7cdd2"/>
     <text x="342" y="432" class="t" font-size="14" font-weight="600">時間間隔</text>
     <text x="342" y="453">每 3 秒心跳一次，time=3 秒</text>
     <text x="342" y="472">預設每 20 秒翻頁</text>
-    <rect x="582" y="408" width="240" height="78" rx="10" fill="#0b2b33" stroke="#1d4b56"/>
+    <rect x="582" y="408" width="240" height="78" rx="10" fill="#f2f7f8" stroke="#b7cdd2"/>
     <text x="598" y="432" class="t" font-size="14" font-weight="600">單位</text>
     <text x="598" y="453">額度與時間皆以秒計</text>
     <text x="598" y="472">28800 s = 8 h · 10933 s ≈ 3.04 h</text>
-    <rect x="838" y="408" width="294" height="78" rx="10" fill="#0b2b33" stroke="#1d4b56"/>
+    <rect x="838" y="408" width="294" height="78" rx="10" fill="#f2f7f8" stroke="#b7cdd2"/>
     <text x="854" y="432" class="t" font-size="14" font-weight="600">認證</text>
     <text x="854" y="453">x-auth-schema：CLIENT 或 PUBLIC</text>
     <text x="854" y="472">CLIENT 且有 token 時才使用 Bearer</text>
   </g>
-  <rect x="48" y="540" width="700" height="156" rx="18" fill="#082027" stroke="#2ee6a8" stroke-opacity="0.45"/>
+  <rect x="48" y="540" width="700" height="156" rx="18" fill="#eef8f3" stroke="#2ee6a8" stroke-opacity="0.45"/>
   <text x="70" y="568" class="lbl">網路邊界</text>
   <text x="70" y="595" class="t" font-size="18" font-weight="650">https://api.sjrc.club/</text>
   <text x="70" y="620" class="m" font-size="12.5">HTTPS · JSON · 逾時 60 秒 · 停用重新導向 · 未固定憑證</text>
   <text x="70" y="642" class="m" font-size="12.5">閱讀、書架、首頁、帳號與 token 更新端點</text>
   <text x="70" y="670" class="s" font-size="12">只傳送帳號持有者的 token；沒有後端、代理、遙測或分析。</text>
-  <rect x="772" y="540" width="380" height="156" rx="18" fill="#071d23" stroke="#245360"/>
+  <rect x="772" y="540" width="380" height="156" rx="18" fill="#f1f6f7" stroke="#b8cdd2"/>
   <text x="794" y="568" class="lbl">參考資料</text>
   <text x="794" y="596" class="t" font-size="16" font-weight="650">sjrc-source/ · 4,888 個 smali 類別</text>
   <text x="794" y="620" class="m" font-size="12.5">從公開的 2.9.0 客戶端反編譯而來</text>
   <text x="794" y="642" class="m" font-size="12.5">用於還原標頭、單位與流程</text>
   <text x="794" y="668" class="s" font-size="12">僅供研究參考；未編入任何成品</text>
-  <g stroke="#5f8790" stroke-width="1.5" marker-end="url(#arrow)" fill="none">
+  <g stroke="#4e6d75" stroke-width="1.5" marker-end="url(#arrow)" fill="none">
     <path d="M245 310v52"/><path d="M592 310v52"/><path d="M958 310v52"/>
     <path d="M592 510v28"/><path d="M360 568h-90v-42"/>
   </g>

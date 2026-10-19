@@ -5,19 +5,19 @@
     <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#43b7ff"/></marker>
     <marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#2ee6a8"/></marker>
     <style>
-      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#e9fffa}
-      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#8fb7be;font-size:12.5px}
-      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#b7d9de;font-size:12.5px}
-      .h{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
-      .box{fill:#0b2b33;stroke:#245360;stroke-width:1.5}
-      .ok{fill:#0b312b;stroke:#2ee6a8;stroke-width:1.6}
-      .no{fill:#2c1719;stroke:#e0605e;stroke-width:1.4;stroke-dasharray:6 4}
+      .t{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#18343b}
+      .s{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#4d6a72;font-size:12.5px}
+      .m{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#344f56;font-size:12.5px}
+      .h{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',Inter,'Segoe UI',sans-serif;fill:#4e6d75;font-size:11px;letter-spacing:1px}
+      .box{fill:#f2f7f8;stroke:#b8cdd2;stroke-width:1.5}
+      .ok{fill:#e9f7ef;stroke:#2ee6a8;stroke-width:1.6}
+      .no{fill:#fff0ee;stroke:#e0605e;stroke-width:1.4;stroke-dasharray:6 4}
     </style>
   </defs>
-  <rect width="1200" height="700" fill="#081b21"/>
+  <rect width="1200" height="700" fill="#f7fafb"/>
   <text x="48" y="52" class="t" font-size="26" font-weight="700">資料流與信任界線</text>
   <text x="48" y="78" class="s">客戶端掌握的資料，以及資料可能送往的位置。</text>
-  <rect x="48" y="110" width="330" height="470" rx="16" fill="#071d23" stroke="#2ee6a8" stroke-opacity="0.45"/>
+  <rect x="48" y="110" width="330" height="470" rx="16" fill="#f1f6f7" stroke="#2ee6a8" stroke-opacity="0.45"/>
   <text x="70" y="140" class="h">你的裝置</text>
   <rect x="70" y="160" width="286" height="82" rx="10" class="box"/>
   <text x="86" y="185" class="t" font-size="15" font-weight="650">帳號憑證</text>
@@ -36,7 +36,7 @@
   <text x="86" y="495" class="t" font-size="15" font-weight="650">日誌面板</text>
   <text x="86" y="518" class="m">請求路徑、代碼與訊息</text>
   <text x="86" y="537" class="s">只留在記憶體，不會上傳</text>
-  <rect x="438" y="180" width="280" height="300" rx="16" fill="#0b2b33" stroke="#43b7ff" stroke-width="2"/>
+  <rect x="438" y="180" width="280" height="300" rx="16" fill="#f2f7f8" stroke="#43b7ff" stroke-width="2"/>
   <text x="460" y="210" class="h">專案程式</text>
   <text x="460" y="242" class="t" font-size="17" font-weight="650">三種客戶端</text>
   <text x="460" y="268" class="m">網頁 · Android WebView · Win32</text>
@@ -47,7 +47,7 @@
   <text x="460" y="390" class="t" font-size="14" font-weight="600">僅直接使用 HTTPS</text>
   <text x="460" y="414" class="m">逾時 60 秒 · 不跟隨重新導向</text>
   <text x="460" y="436" class="m">未固定憑證</text>
-  <rect x="778" y="180" width="374" height="300" rx="16" fill="#082027" stroke="#2ee6a8"/>
+  <rect x="778" y="180" width="374" height="300" rx="16" fill="#eef8f3" stroke="#2ee6a8"/>
   <text x="800" y="210" class="h">第三方服務</text>
   <text x="800" y="242" class="t" font-size="17" font-weight="650">api.sjrc.club</text>
   <text x="800" y="268" class="m">帳號 · 額度 · 書架</text>
