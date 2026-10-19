@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+dist/
+build/
+.web-check.js
+*.jks
+*.keystore
+*.p12
+*.pem
+.env

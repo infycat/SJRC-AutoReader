@@ -1,0 +1,49 @@
+{
+  "generated": "2026-10-19",
+  "target": {
+    "package": "club.sjrc.app",
+    "versionName": "2.9.0",
+    "versionCode": 120,
+    "minSdk": 26,
+    "targetSdk": 35
+  },
+  "smali": {
+    "files": 4888,
+    "bytes": 32763290,
+    "by_top_level_directory": {
+      "club": 2962,
+      "com": 1926
+    }
+  },
+  "release_artifacts": {
+    "web/SJRC_AutoReader.html": {
+      "bytes": 86464,
+      "sha256": "d42615d827eeeb2174f4f8e0dc3035f8731ed3c408a971e0b8f2a65678a194b5"
+    },
+    "phone/SJRC-AutoRead.apk": {
+      "bytes": 53784,
+      "sha256": "a8959831023403cc92ce450633c9a0cdd2e0b2d1bb90327c323aaa432e9e239f"
+    },
+    "pc/SJRC_AutoReader.exe": {
+      "bytes": 991237,
+      "sha256": "125d1ff535754b2cde1e70ce4d23596e5837828b3c5e15edd0e4c5e815a26018"
+    }
+  },
+  "wrapper": {
+    "package": "club.sjrc.autoread",
+    "versionCode": 1,
+    "versionName": "1.0",
+    "minSdk": 23,
+    "targetSdk": 33
+  },
+  "redactions": {
+    "applied": true,
+    "files": 5,
+    "removed": [
+      "AES-192 key",
+      "AES-CBC IV",
+      "RSA private keys"
+    ],
+    "marker": "SECURITY REDACTION"
+  }
+}

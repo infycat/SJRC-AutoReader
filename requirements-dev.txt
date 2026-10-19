@@ -1,0 +1,2 @@
+# Development-only dependencies. The three clients have no runtime dependencies.
+PyYAML>=6.0,<7

@@ -1,0 +1,96 @@
+# SJRC AutoReader — protocol examples
+# Requires a REST client that supports .http files.
+# Keep your filled-in copy out of git. Do not commit tokens.
+#
+# Side effects: start creates a session; heartbeat adds seconds; end closes it.
+# Read docs/en/api.md and examples/README.md before running.
+
+@base = https://api.sjrc.club
+@token = REPLACE_WITH_ACCESS_TOKEN
+@bookId = REPLACE_WITH_BOOK_ID
+@sessionId = REPLACE_WITH_SESSION_ID
+@chapterId = REPLACE_WITH_CHAPTER_ID
+
+### Read quota (seconds) — read-only
+GET {{base}}/v1/client/reading-time
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+
+### Account details — read-only
+GET {{base}}/v1/client/users/detail
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+
+### Read a book's metadata — read-only
+GET {{base}}/v2/client/books/{{bookId}}
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+
+### Start a reading session — creates state
+# Response data.sessionId is required by every following call.
+POST {{base}}/v1/client/reading-time/start
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+content-type: application/json
+
+{
+  "bookId": {{bookId}}
+}
+
+### Heartbeat — adds time (seconds, not milliseconds)
+# The official client sends this every 3 seconds with time = 3.
+PATCH {{base}}/v1/client/reading-time
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+content-type: application/json
+
+{
+  "sessionId": "{{sessionId}}",
+  "time": 3
+}
+
+### Report a reading position — read-only metadata
+POST {{base}}/v1/client/reading-pos
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+content-type: application/json
+
+{
+  "bookId": {{bookId}},
+  "pos": {
+    "chapterId": {{chapterId}},
+    "chapterLocation": 0,
+    "position": 1
+  }
+}
+
+### End the session — use sessionId, not bookId
+PATCH {{base}}/v1/client/reading-time/end
+version: 2.9.0
+x-current-platform: android
+x-current-locale: zh-HK
+x-auth-schema: CLIENT
+authorization: Bearer {{token}}
+content-type: application/json
+
+{
+  "sessionId": "{{sessionId}}"
+}

@@ -1,0 +1,82 @@
+name: Bug report
+description: Report a reproducible defect in one of the three builds
+title: "[bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Do not paste tokens, passwords, verification
+        codes, email addresses, school names, or book titles.** Redact logs
+        before submitting. Security issues must follow SECURITY.md instead.
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Build
+      description: Which artifact are you running?
+      options:
+        - Web (web/SJRC_AutoReader.html)
+        - Android (phone/SJRC-AutoRead.apk)
+        - Windows (pc/SJRC_AutoReader.exe)
+        - Reference source / documentation
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version and hash
+      description: Release version, commit, or the SHA-256 prefix of the binary.
+      placeholder: "1.0.0 / d42615d827eeeb21"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser/OS, Android version, Windows version, or Node/Python version for tooling.
+      placeholder: "Windows 11 23H2 x64 / Chrome 130"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The smallest sequence that shows the problem. Mention demo mode, sign-in method, and whether a run was active.
+      placeholder: |
+        1. Serve web/ over HTTP
+        2. Sign in with Google
+        3. Set target 0.1 h and press Start
+        4. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include the exact error code and message if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      description: Log lines only. Remove Bearer values, eyJ… tokens, tickets, session IDs, emails, school names, and book titles.
+      render: text
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I removed tokens, credentials, and personal data from this report.
+          required: true
+        - label: I read docs/en/troubleshooting.md (or docs/zh/troubleshooting.md) and the FAQ.
+          required: true
+        - label: This is not a security vulnerability (those follow SECURITY.md).
+          required: true

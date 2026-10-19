@@ -1,0 +1,61 @@
+name: Feature request
+description: Propose a scoped improvement that respects the project boundaries
+title: "[feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project deliberately has **no backend**, no credential collection,
+        and no DRM circumvention. Proposals that add any of those will be
+        closed. Explain the user problem before the implementation.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Web client
+        - Android wrapper
+        - Windows client
+        - Documentation
+        - Tooling / CI
+        - Protocol research
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is hard, missing, or misleading today? Who is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful change and which files/components it touches.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Including "do nothing" and an external tool, if relevant.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Protocol evidence
+      description: If this touches the API, cite the exact smali class or public Swagger operation.
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not add a backend that receives user tokens.
+          required: true
+        - label: This does not add DRM decryption, key material, or book-content downloading.
+          required: true
+        - label: This does not bypass authentication, quota, or access controls.
+          required: true
+        - label: I am willing to help test or implement this.

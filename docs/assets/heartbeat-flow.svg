@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Reading session and heartbeat sequence</title>
+  <desc id="desc">Sequence of start, repeated heartbeat, page turn, quota checks and end between a client, the SJRC API and the UI.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#43b7ff"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#2ee6a8"/></marker>
+    <style>
+      .t{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#e9fffa}
+      .s{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#8fb7be;font-size:12.5px}
+      .m{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#b7d9de;font-size:12.5px}
+      .h{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
+      .life{stroke:#245360;stroke-width:2;stroke-dasharray:5 5}
+    </style>
+  </defs>
+  <rect width="1200" height="820" fill="#081b21"/>
+  <text x="48" y="52" class="t" font-size="26" font-weight="700">Reading session — observed flow</text>
+  <text x="48" y="78" class="s">Times and field names are the ones used by the official 2.9.0 client and this project.</text>
+  <g>
+    <rect x="48" y="110" width="200" height="54" rx="10" fill="#0d3540" stroke="#2ee6a8"/>
+    <text x="148" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">UI / timer</text>
+    <text x="148" y="152" text-anchor="middle" class="s">target hours</text>
+    <rect x="400" y="110" width="200" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="500" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">Client</text>
+    <text x="500" y="152" text-anchor="middle" class="s">web · Android · Windows</text>
+    <rect x="752" y="110" width="200" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="852" y="134" text-anchor="middle" class="t" font-size="15" font-weight="650">SJRC API</text>
+    <text x="852" y="152" text-anchor="middle" class="s">api.sjrc.club</text>
+    <rect x="1042" y="110" width="110" height="54" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="1097" y="141" text-anchor="middle" class="t" font-size="14" font-weight="650">Account</text>
+  </g>
+  <line x1="148" y1="164" x2="148" y2="736" class="life"/>
+  <line x1="500" y1="164" x2="500" y2="736" class="life"/>
+  <line x1="852" y1="164" x2="852" y2="736" class="life"/>
+  <line x1="1097" y1="164" x2="1097" y2="736" class="life"/>
+  <g>
+    <text x="60" y="206" class="h">ONCE PER RUN</text>
+    <path d="M148 218H500" stroke="#2ee6a8" stroke-width="1.7" marker-end="url(#g)"/>
+    <text x="164" y="212" class="m">Start with target hours / interval</text>
+    <path d="M500 246H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="240" class="m">POST /v1/client/reading-time/start  {bookId}</text>
+    <path d="M852 274H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="268" class="m">{ code: 200, data: { sessionId } }  → save sessionId</text>
+    <text x="60" y="316" class="h">EVERY 3 s</text>
+    <path d="M148 330H500" stroke="#2ee6a8" stroke-width="1.7" marker-end="url(#g)"/>
+    <text x="164" y="324" class="m">tick() every 1 s; heartbeat when due</text>
+    <path d="M500 358H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="352" class="m">PATCH /v1/client/reading-time  {sessionId, time: 3}</text>
+    <text x="516" y="371" class="s">time is SECONDS; 3 ≈ one 3-second interval</text>
+    <path d="M852 392H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="386" class="m">reading-time snapshot → usedQuota, totalQuota</text>
+    <path d="M500 420H148" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="164" y="414" class="m">update progress; check stop conditions</text>
+    <text x="60" y="462" class="h">EVERY 20 s</text>
+    <path d="M500 476H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="470" class="m">POST /v1/client/reading-pos  {bookId, pos}</text>
+    <path d="M852 504H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="498" class="m">position accepted; next page / next book</text>
+    <text x="60" y="550" class="h">STOP CONDITIONS</text>
+    <rect x="148" y="562" width="704" height="74" rx="10" fill="#0b2b33" stroke="#245360"/>
+    <text x="166" y="587" class="m">used &gt;= target hours · code 80008 quota exhausted · remain &lt;= 20% (-777777)</text>
+    <text x="166" y="610" class="m">token refresh failed · 4 consecutive heartbeat errors (-1001) · user pressed Stop</text>
+    <text x="60" y="674" class="h">END</text>
+    <path d="M500 688H852" stroke="#43b7ff" stroke-width="1.7" marker-end="url(#a)"/>
+    <text x="516" y="682" class="m">PATCH /v1/client/reading-time/end  {sessionId}</text>
+    <text x="516" y="701" class="s">The official client sends bookId here; the server DTO expects sessionId (80009).</text>
+    <path d="M852 726H500" stroke="#5f8790" stroke-width="1.7" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="516" y="720" class="m">session closed; release timer and UI state</text>
+  </g>
+  <text x="48" y="782" class="s">The client never downloads or decrypts book content; it reports time and position only.</text>
+</svg>

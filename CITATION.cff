@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you reference this project in academic or technical work, cite the repository as software. Update the repository URL after publishing your fork."
+title: "SJRC AutoReader: automated reading-time client for SJRC 2.9.0"
+abstract: >-
+  A small interoperability study and client collection for the SJRC reading
+  service. It maintains the documented reading heartbeat, reports reading
+  positions, and stops at a configurable target. The repository includes a
+  single-file web app, an Android WebView wrapper, a native Windows client, and
+  bilingual protocol documentation derived from the public API and decompiled
+  client excerpts.
+authors:
+  - name: "SJRC AutoReader contributors"
+version: "1.0.0"
+date-released: "2026-10-19"
+license: MIT
+keywords:
+  - sjrc
+  - reading-time
+  - interoperability
+  - reverse-engineering
+  - webview
+  - win32
+  - no-dependencies
+type: software

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Data flow and privacy boundaries</title>
+  <desc id="desc">Credentials and tokens stay local, protocol requests go directly to the SJRC API, and no project backend exists.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#43b7ff"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0l8 3-8 3z" fill="#2ee6a8"/></marker>
+    <style>
+      .t{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#e9fffa}
+      .s{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#8fb7be;font-size:12.5px}
+      .m{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#b7d9de;font-size:12.5px}
+      .h{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif;fill:#5f8790;font-size:11px;letter-spacing:1px}
+      .box{fill:#0b2b33;stroke:#245360;stroke-width:1.5}
+      .ok{fill:#0b312b;stroke:#2ee6a8;stroke-width:1.6}
+      .no{fill:#2c1719;stroke:#e0605e;stroke-width:1.4;stroke-dasharray:6 4}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#081b21"/>
+  <text x="48" y="52" class="t" font-size="26" font-weight="700">Data flow and trust boundaries</text>
+  <text x="48" y="78" class="s">Everything the client knows, and every place it can go.</text>
+  <rect x="48" y="110" width="330" height="470" rx="16" fill="#071d23" stroke="#2ee6a8" stroke-opacity="0.45"/>
+  <text x="70" y="140" class="h">YOUR DEVICE</text>
+  <rect x="70" y="160" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="185" class="t" font-size="15" font-weight="650">Account secret</text>
+  <text x="86" y="208" class="m">password or Google ID token</text>
+  <text x="86" y="227" class="s">used once; never persisted</text>
+  <rect x="70" y="258" width="286" height="98" rx="10" class="ok"/>
+  <text x="86" y="283" class="t" font-size="15" font-weight="650">Tokens</text>
+  <text x="86" y="306" class="m">localStorage · WebView · HKCU</text>
+  <text x="86" y="325" class="m">access + refresh + session id</text>
+  <text x="86" y="344" class="s">cleared by logout / end / expiry</text>
+  <rect x="70" y="372" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="397" class="t" font-size="15" font-weight="650">Preferences</text>
+  <text x="86" y="420" class="m">target hours · heartbeat · turn</text>
+  <text x="86" y="439" class="s">local only; no profile built</text>
+  <rect x="70" y="470" width="286" height="82" rx="10" class="box"/>
+  <text x="86" y="495" class="t" font-size="15" font-weight="650">Log panel</text>
+  <text x="86" y="518" class="m">request path, code, message</text>
+  <text x="86" y="537" class="s">memory only; no upload</text>
+  <rect x="438" y="180" width="280" height="300" rx="16" fill="#0b2b33" stroke="#43b7ff" stroke-width="2"/>
+  <text x="460" y="210" class="h">PROJECT CODE</text>
+  <text x="460" y="242" class="t" font-size="17" font-weight="650">Three clients</text>
+  <text x="460" y="268" class="m">web · Android WebView · Win32</text>
+  <text x="460" y="296" class="s">No server component</text>
+  <text x="460" y="316" class="s">No analytics SDK</text>
+  <text x="460" y="336" class="s">No crash reporter</text>
+  <text x="460" y="356" class="s">No proxy or relay</text>
+  <text x="460" y="390" class="t" font-size="14" font-weight="600">Direct HTTPS only</text>
+  <text x="460" y="414" class="m">60 s timeout · no redirects</text>
+  <text x="460" y="436" class="m">no certificate pinning</text>
+  <rect x="778" y="180" width="374" height="300" rx="16" fill="#082027" stroke="#2ee6a8"/>
+  <text x="800" y="210" class="h">THIRD-PARTY SERVICE</text>
+  <text x="800" y="242" class="t" font-size="17" font-weight="650">api.sjrc.club</text>
+  <text x="800" y="268" class="m">Account · quota · bookshelf</text>
+  <text x="800" y="292" class="m">Reading session and position</text>
+  <text x="800" y="316" class="m">Token refresh</text>
+  <text x="800" y="348" class="s">Receives: token, bookId, sessionId,</text>
+  <text x="800" y="368" class="s">time in seconds, page position.</text>
+  <text x="800" y="396" class="s">Retains data under its own policy.</text>
+  <text x="800" y="426" class="s">This project cannot inspect or delete it.</text>
+  <rect x="438" y="520" width="714" height="62" rx="12" class="no"/>
+  <text x="460" y="546" class="t" font-size="14" font-weight="650">NOT PRESENT</text>
+  <text x="460" y="568" class="s">backend · telemetry · book content · DRM keys · credentials shared with this project</text>
+  <g stroke-width="2" fill="none">
+    <path d="M356 205H438" stroke="#2ee6a8" marker-end="url(#g)"/>
+    <path d="M356 307H438" stroke="#2ee6a8" marker-end="url(#g)"/>
+    <path d="M718 300H778" stroke="#43b7ff" marker-end="url(#a)"/>
+  </g>
+  <text x="362" y="196" class="s">sign-in</text>
+  <text x="362" y="298" class="s">authorization</text>
+  <text x="724" y="291" class="s">HTTPS</text>
+  <text x="48" y="634" class="s">Local storage differs by build; the privacy properties do not. See docs/en/privacy.md for the inventory and retention table.</text>
+</svg>

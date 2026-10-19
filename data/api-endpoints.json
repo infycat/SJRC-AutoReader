@@ -1,0 +1,694 @@
+{
+  "generated_from": "sjrc-source/net_endpoints.json",
+  "method_count": 98,
+  "unique_endpoint_count": 67,
+  "note": "Extracted from Retrofit annotations in the 2.9.0 DEX. Paths are shown with a leading slash. Dynamic @Url declarations have no fixed path. No credentials or request headers are included.",
+  "methods": [
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "addBookshelf",
+      "http": "POST",
+      "path": "/v1/client/bookshelf",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "addBookshelf2",
+      "http": "POST",
+      "path": "/v1/client/bookshelf",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "applyTime",
+      "http": "POST",
+      "path": "/v1/client/applications",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "applyTime",
+      "http": "POST",
+      "path": "/v1/client/applications",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "bindPlayerId",
+      "http": "PATCH",
+      "path": "/v1/client/bind-player-id",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "createBookNote",
+      "http": "POST",
+      "path": "/v1/client/book-notes",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "delBookshelf",
+      "http": "HTTP",
+      "path": "/v1/client/bookshelf",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "delBookshelf2",
+      "http": "HTTP",
+      "path": "/v1/client/bookshelf",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "deleteBookNote",
+      "http": "DELETE",
+      "path": "/v1/client/book-notes/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "emailLogin",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/email/pre-login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAppVersion",
+      "http": "GET",
+      "path": "/v1/public/system/app-versions/{version}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAuthorBookListDetail",
+      "http": "GET",
+      "path": "/v1/client/books/list",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAuthorBookReferenceList",
+      "http": "GET",
+      "path": "/v1/client/books/web",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAuthorDetail",
+      "http": "GET",
+      "path": "/v1/client/authors/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAuthors",
+      "http": "GET",
+      "path": "/v1/client/authors",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getAuthors",
+      "http": "GET",
+      "path": "/v1/client/authors",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookDetail",
+      "http": "GET",
+      "path": "/v2/client/books/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookDetail2",
+      "http": "GET",
+      "path": "/v2/client/books/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookKey",
+      "http": "GET",
+      "path": "/v1/client/booksKey",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookNote",
+      "http": "GET",
+      "path": "/v1/client/book-notes",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBooksRecords",
+      "http": "GET",
+      "path": "/v1/client/books/records",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookshelf",
+      "http": "GET",
+      "path": "/v1/client/bookshelf/books",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getBookshelf",
+      "http": "GET",
+      "path": "/v1/client/bookshelf/books",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getDownloadBookInfo",
+      "http": "GET",
+      "path": "/v1/file/downloadBook",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeCate",
+      "http": "GET",
+      "path": "/v1/client/categories/all",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeCategory",
+      "http": "GET",
+      "path": "/v1/client/categories/all",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeMorePage",
+      "http": "GET",
+      "path": "/v1/client/book-lists",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeNewest",
+      "http": "GET",
+      "path": "/v1/client/homepage/newest?limit=10",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeNewest",
+      "http": "GET",
+      "path": "/v1/client/homepage/newest",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeNewest2",
+      "http": "GET",
+      "path": "/v1/client/homepage/newest",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomePage",
+      "http": "GET",
+      "path": "/v1/client/homepage",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomePage2",
+      "http": "GET",
+      "path": "/v1/client/homepage",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeRecommend",
+      "http": "GET",
+      "path": "/v1/client/homepage/recommend?limit=10",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeRecommend2",
+      "http": "GET",
+      "path": "/v1/client/homepage/recommend?limit=10",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeRecommendReference",
+      "http": "GET",
+      "path": "/v1/client/homepage/recommend/reference?limit=10",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeRecommendReference2",
+      "http": "GET",
+      "path": "/v1/client/homepage/recommend/reference",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeSearch",
+      "http": "GET",
+      "path": "/v1/client/books/search",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeSearchBooks",
+      "http": "GET",
+      "path": "/v1/client/books/search",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeTop",
+      "http": "GET",
+      "path": "/v1/client/homepage/hot",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHomeTop2",
+      "http": "GET",
+      "path": "/v1/client/homepage/hot",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getHotWord",
+      "http": "GET",
+      "path": "/v1/client/hot-word",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getLabels",
+      "http": "GET",
+      "path": "/v1/client/lables/all",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getLabels",
+      "http": "GET",
+      "path": "/v1/client/lables/all",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageCount",
+      "http": "GET",
+      "path": "/v1/client/message/count",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageDetail",
+      "http": "GET",
+      "path": "/v1/client/message/{messageId}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageDetailById",
+      "http": "GET",
+      "path": "/v1/client/message/{messageId}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageEntity",
+      "http": "GET",
+      "path": "/v1/client/applications/{messageId}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageEntity",
+      "http": "GET",
+      "path": "/v1/client/applications/{messageId}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageList",
+      "http": "GET",
+      "path": "/v1/client/message",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getMessageList",
+      "http": "GET",
+      "path": "/v1/client/message",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPDFKey",
+      "http": "GET",
+      "path": "/v1/client/books/aes-key",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPublishBookListDetail",
+      "http": "GET",
+      "path": "/v1/client/books/list",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPublishBookReferenceList",
+      "http": "GET",
+      "path": "/v1/client/books/web",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPublisherDetail",
+      "http": "GET",
+      "path": "/v1/client/publishers/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPublishers",
+      "http": "GET",
+      "path": "/v1/client/publishers",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getPublishers",
+      "http": "GET",
+      "path": "/v1/client/publishers",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReadInfo",
+      "http": "GET",
+      "path": "/v1/client/reading-time",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReadingChart",
+      "http": "GET",
+      "path": "/v1/client/books/reading-chart",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReadingReflectionInfo",
+      "http": "GET",
+      "path": "/v1/client/readingReflection/info",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReadingTimeInfo",
+      "http": "GET",
+      "path": "/v1/client/reading-time",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReferenceHomeTop",
+      "http": "GET",
+      "path": "/v1/client/homepage/hot/reference",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getReferenceHomeTop2",
+      "http": "GET",
+      "path": "/v1/client/homepage/hot/reference",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getSearchBooks",
+      "http": "GET",
+      "path": "/v1/client/books/web",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getSearchWord",
+      "http": "GET",
+      "path": "/v1/client/search-word?top=10",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "getUserInfo",
+      "http": "GET",
+      "path": "/v1/client/users/detail",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "googleLogin",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/google/login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "googleLogin2",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/google/login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "googlePreLogin",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/google/pre-login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "googlePreLogin2",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/google/pre-login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "login",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/email/login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "loginByCode",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/email/login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "loginPassword",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/email/pre-login",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "postBookDetail",
+      "http": "POST",
+      "path": "/v1/client/book-detail",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readMessage",
+      "http": "PATCH",
+      "path": "/v1/client/message/read",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readMessage",
+      "http": "PATCH",
+      "path": "/v1/client/message/read",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readPos",
+      "http": "POST",
+      "path": "/v1/client/reading-pos",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readRecordEnd",
+      "http": "POST",
+      "path": "/v1/client/reference-book/read-record/end",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readRecordReading",
+      "http": "POST",
+      "path": "/v1/client/reference-book/read-record/reading",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readRecordStart",
+      "http": "POST",
+      "path": "/v1/client/reference-book/read-record/start",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readTimeEnd",
+      "http": "PATCH",
+      "path": "/v1/client/reading-time/end",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readTimeStart",
+      "http": "POST",
+      "path": "/v1/client/reading-time/start",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "readingReflectionList",
+      "http": "GET",
+      "path": "/v1/client/readingReflection/list",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "refreshToken",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/token/refresh",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "resetPassword",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/reset-password",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "resetPassword2",
+      "http": "POST",
+      "path": "/v1/client/users/reset-password",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "resetPasswordByTicket",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/reset-password",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "resetPasswordTicket",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/tickets",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "resetPasswordToGetTicket",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/tickets",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "searchSchoolList",
+      "http": "GET",
+      "path": "/v1/public/schools",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "sendVerCode",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/send-verifications",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "sendVerificationCode",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/send-verifications",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "textToSpeech",
+      "http": "POST",
+      "path": "/v1/client/text-to-speech",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "updateBookNote",
+      "http": "PATCH",
+      "path": "/v1/client/book-notes/{id}",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "updateHeader",
+      "http": "PATCH",
+      "path": "/v1/client/users",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "useReadTime",
+      "http": "PATCH",
+      "path": "/v1/client/reading-time",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/MainHttpService;",
+      "method": "verCode",
+      "http": "POST",
+      "path": "/v1/public/accounts/users/send-verifications",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/UploadAndDownloadService;",
+      "method": "downloadFile",
+      "http": "GET",
+      "path": "(dynamic @Url)",
+      "description": "?"
+    },
+    {
+      "class": "Lclub/sjrc/app/net/UploadAndDownloadService;",
+      "method": "uploadImg",
+      "http": "POST",
+      "path": "/v1/files/images",
+      "description": "?"
+    }
+  ]
+}
